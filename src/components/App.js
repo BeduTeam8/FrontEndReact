@@ -1,10 +1,11 @@
 import React from 'react';
-
+import Banner from "./banner";
 const App = () => {
    return (
-      <div>
+      <>
+      <Banner/>
          LibraryVerse!
-      </div>
+      </>
    );
 };
 

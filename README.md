@@ -1,9 +1,13 @@
 
 # FrontEndReact
-*** 
+
+***
+
 # LibraryVerse
+![Logo LibraryVerse](./public/LogoLibraryVerse.jpg)
+
     Your Library a  click away!
---- 
+***
 
 # Getting Started with Create React App
 

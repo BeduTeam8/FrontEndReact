@@ -1,12 +1,22 @@
+import logo from "./banner.module.css";
+
+const subtitleStyle = {
+  fontStyle: "italic",
+  fontSize: "x-large",
+  color: "coral",
+};
+
 const Banner = () => {
     return (
-      <header>
-        <div>
-          <img src="./LogoLibraryVerse.jpg" alt="logo" />
-        </div>
-        <div>Your library a click away.</div>
-      </header>
-    );
-  };
-  
-  export default Banner;
+      <header className="row mb-4">
+      <div className="col-2">
+          <img src="./LogoLibraryVerse.jpg" alt="logo" className={logo} />
+      </div>
+      <div className="col-7 mt-4" style={subtitleStyle}>
+      Your Library a  click away!
+      </div>
+    </header>
+  );
+};
+
+export default Banner;

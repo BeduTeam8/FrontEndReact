@@ -1,10 +1,14 @@
 //import React from 'react';
 import Banner from "./banner";
+import DataList from "./dataList";
+
 const App = () => {
    return (
       <>
-      <Banner/>
-         LibraryVerse!
+      <Banner>
+         <div>LibraryVerse!</div>
+      </Banner>
+      <DataList/>
       </>
    );
 };

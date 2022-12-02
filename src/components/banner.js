@@ -1,19 +1,24 @@
 import logo from "./banner.module.css";
 
+const logoStyle={
+  height:"50px"
+}
+
 const subtitleStyle = {
   fontStyle: "italic",
   fontSize: "x-large",
   color: "coral",
 };
 
-const Banner = () => {
+const Banner = ({ children }) => {
     return (
       <header className="row mb-4">
-      <div className="col-2">
-          <img src="./LogoLibraryVerse.jpg" alt="logo" className={logo} />
+      <div className="classNameLogoDiv">
+          <img src="./LogoLibraryVerse.jpg" style={logoStyle}  alt="logo" className={logo} />
       </div>
-      <div className="col-7 mt-4" style={subtitleStyle}>
-      Your Library a  click away!
+      <div className="classNameHeadingX" style={subtitleStyle}>
+      Your Library a  click away!.
+      {children}
       </div>
     </header>
   );

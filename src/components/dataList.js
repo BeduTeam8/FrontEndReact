@@ -1,62 +1,78 @@
-import React, { useState } from "react";
-import HouseRow from "./dataRow";
-
-const houseArray = [
-  {
-    id: 1,
-    address: "12 Valley of Kings, Geneva",
-    country: "Switzerland",
-    price: 900000,
-  },
-  {
-    id: 2,
-    address: "89 Road of Forks, Bern",
-    country: "Switzerland",
-    price: 500000,
-  },
-];
+import React, { useState,useEffect } from "react";
+import DataRow from "./dataRow";
+ //const URL="https://libroverse-production.up.railway.app";
+//const URL="http://localhost:4000"
 
 const DataList = () => {
-  const [houses, setHouses] = useState(houseArray);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
+ useEffect(() => {
+  const getData = async () => {
+    try {
+      const response = await fetch(
+        `/category`,{mode:'cors'}
+      );
+      if (!response.ok) {
+        throw new Error(
+          `This is an HTTP error: The status is ${response.status}`
+        );
+      }
+      let actualData = await response.json();
+      setData(actualData);
+      setError(null);
+    } catch(err) {
+      setError(err.message);
+      setData(null);
+    } finally {
+      setLoading(false);
+    }  
+  }
+  getData()
+}, [])
 
-  const addHouse = () => {
-    setHouses([
-      ...houses,
-      {
-        id: 3,
-        address: "32 Valley Way, New York",
-        country: "USA",
-        price: 1000000,
-      },
-    ]);
-  };
+
+  
+  // RESPONSE OF a Genre, withour books 
+// "id": 25,
+//     "genre": "young adult",
+//     "description": "Function-based fault-tolerant analyzer",
+//     "createdAt": "2022-11-12T20:57:03.000Z",
+//     "updatedAt": "2022-11-12T20:57:03.000Z",
+//     "Books": [
+
 
   return (
-    <>
-      <div className="row mb-2">
+    <div className="datalist">
         <h5 className="themeFontColor text-center">
-          Houses currently on the market
+          Data from LibraryVerse Category
         </h5>
-      </div>
+      {loading && <div>A moment please...</div>}
+      {error && (
+        <div>{`There is a problem fetching the post data - ${error}`}</div>
+      )}
       <table className="table table-hover">
         <thead>
           <tr>
-            <th>Address</th>
-            <th>Country</th>
-            <th>Asking Price</th>
+            <th>Genre</th>
+            <th>description</th>
+            <th>CreatedAt</th>
           </tr>
         </thead>
         <tbody>
-          {houses.map((h) => (
-            <HouseRow key={h.id} house={h} />
-          ))}
+        {data &&
+          data.map(({ id, genre,description,createdAt,updatedAt}) => (
+            <DataRow key={id} genre={genre} description={description}
+              createdAt={createdAt}
+              updatedAt={updatedAt}
+            />
+              
+          ))}      
         </tbody>
       </table>
-      <button className="btn btn-primary" onClick={addHouse}>
-        Add
-      </button>
-    </>
+    </div>
   );
-};
+}
 
 export default DataList;

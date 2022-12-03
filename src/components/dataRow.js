@@ -1,11 +1,11 @@
-import currencyFormatter from "./currencyFormatter";
-
-const DataRow = ({ house }) => {
+const DataRow = ({ genre,description,createdAt,updatedAt}) => {
     return (
       <tr>
-        <td>{house.address}</td>
-        <td>{house.country}</td>
-        <td>{currencyFormatter.format(house.price)}</td>
+        <td>{genre}</td>
+        <td>{description}</td>
+        <td>{createdAt}</td>
+        <td>{updatedAt}</td>
+
       </tr>
     );
   };

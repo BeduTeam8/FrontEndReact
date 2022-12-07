@@ -90,11 +90,18 @@ switch (endPoint){
             <table className="table table-hover">
               <thead>
                 <tr>
-                {data&&Object.keys(data[0]).map((tablehead)=>(
-                  <th>{tablehead}</th>
-                ))}
-                  {/* <th>Genre</th>
-                  <th>Description</th> */}
+                  <th>Book Name</th>
+                  <th>Description</th>
+                  <th>Publication date</th>
+                  
+                  <th>AuthorId</th>
+                  <th>Author</th>
+                  
+                  <th>EditorialId</th>
+                  <th>Editorial</th>
+
+                  <th>CategoryId</th>
+                  <th>Category Genre</th>
                 </tr>
               </thead>
               <tbody>
@@ -104,11 +111,14 @@ switch (endPoint){
                 <td>{item.book_name}</td>
                 <td>{item.description}</td>
                 <td>{item.publication_date}</td>
-                <td>{item.CategoryId}</td>
-                <td>{item.EditorialId}</td>
+                                
                 <td>{item.AuthorId}</td>
                 <td>{item.Author.name}</td>
+
+                <td>{item.EditorialId}</td>
                 <td>{item.Editorial.name}</td>
+
+                <td>{item.CategoryId}</td>
                 <td>{item.Category.genre}</td>
               </tr>
               ))}      

@@ -50,9 +50,9 @@ switch (endPoint){
   case "category":
     return (
       <div className="datalist">
-          <h5 className="themeFontColor text-center">
-            Data from LibraryVerse Category
-          </h5>
+          <h1 className="themeFontColor text-center">
+            Data from LibraryVerse {endPoint}
+          </h1>
         {loading && <div>A moment please...</div>}
         {error && (
           <div>{`There is a problem fetching the post data - ${error}`}</div>
@@ -62,6 +62,9 @@ switch (endPoint){
             <tr>
               <th>Genre</th>
               <th>Description</th>
+
+              <th>Books...</th>
+
             </tr>
           </thead>
           <tbody>
@@ -80,9 +83,9 @@ switch (endPoint){
     case "book":
       return(
           <div className="datalist">
-              <h5 className="themeFontColor text-center">
-                Data from LibraryVerse Book
-              </h5>
+              <h1 className="themeFontColor text-center">
+                Data from LibraryVerse {endPoint}
+              </h1>
             {loading && <div>A moment please...</div>}
             {error && (
               <div>{`There is a problem fetching the post data - ${error}`}</div>
@@ -126,6 +129,54 @@ switch (endPoint){
             </table>
           </div>
       );
+    
+      case "author":
+    //   "id": 1,
+		// "name": "Blackish oystercatcher",
+		// "bio": "Multi-channelled 24 hour software",
+		// "prizes": "Face to face background flexibility",
+		// "createdAt": "2022-11-12T20:57:03.000Z",
+		// "updatedAt": "2022-11-12T20:57:03.000Z",
+		// "Books": [
+		// 	{
+		// 		"book_name": "Momma's Man",
+		// 		"description": "Reverse-engineered web-enabled internet solution",
+		// 		"AuthorId": 1
+		// 	},
+      return(
+          <div className="datalist">
+              <h1 className="themeFontColor text-center">
+                Data from LibraryVerse {endPoint}
+              </h1>
+            {loading && <div>A moment please...</div>}
+            {error && (
+              <div>{`There is a problem fetching the post data - ${error}`}</div>
+            )}
+            <table className="table table-hover">
+              <thead>
+                <tr>
+                  <th>Author</th>
+                  <th>Biography</th>
+                  <th>Prizes</th>
+                  
+                  <th>Books...</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+              {data &&
+                data.map((item) => (
+              <tr key={item.id}>
+                <td>{item.name}</td>
+                <td>{item.bio}</td>
+                <td>{item.prizes}</td>
+              </tr>
+              ))}      
+              </tbody>
+            </table>
+          </div>
+      );
+
   default:
     return;
   }

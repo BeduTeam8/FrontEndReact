@@ -176,7 +176,58 @@ switch (endPoint){
             </table></center>
           </div>
       );
-
+      case "editorial":
+    // "id": 1,
+		// "name": "Great white pelican",
+		// "country": "Brazil",
+		// "editorial_desc": "Programmable radical standardization",
+		// "createdAt": "2022-11-12T02:56:14.000Z",
+		// "updatedAt": "2022-11-12T02:56:14.000Z",
+		// "Books": [
+		// 	{
+		// 		"id": 79,
+		// 		"book_name": "Trouble with the Truth, The",
+		// 		"description": "Profound tertiary database",
+		// 		"publication_date": "2022-08-04T12:33:31Z",
+		// 		"createdAt": "2022-11-12T02:56:15.000Z",
+		// 		"updatedAt": "2022-11-12T02:56:15.000Z",
+		// 		"CategoryId": 10,
+		// 		"EditorialId": 1,
+		// 		"AuthorId": 43
+		// 	},
+    return(
+      <div className="datalist">
+          <h2 className="themeFontColor text-center">
+          <center>Data from LibraryVerse {endPoint}</center>
+          </h2>
+        {loading && <div>A moment please...</div>}
+        {error && (
+          <div>{`There is a problem fetching the post data - ${error}`}</div>
+        )}
+        <center><table className="table table-hover">
+          <thead>
+            <tr>
+              <th>Editorial</th>
+              <th>Description</th>
+              <th>Country</th>
+              
+              <th>Books...</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+          {data &&
+            data.map((item) => (
+          <tr key={item.id}>
+            <td>{item.name}</td>
+            <td>{item.editorial_desc}</td>
+            <td>{item.country}</td>
+          </tr>
+          ))}      
+          </tbody>
+        </table></center>
+      </div>
+  );
   default:
     return;
   }

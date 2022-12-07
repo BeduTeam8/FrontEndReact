@@ -227,7 +227,110 @@ switch (endPoint){
           </tbody>
         </table></center>
       </div>
-  );
+  ); 
+  case "review":
+    // {
+    //   "id": 1,
+    //   "review": "Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",
+    //   "rating": 2.2,
+    //   "user_id": 37,
+    //   "book_id": 139,
+    //   "createdAt": "2022-11-12T20:57:04.000Z",
+    //   "updatedAt": "2022-11-12T20:57:04.000Z"
+    // },
+    // {
+    //   "id": 2,
+    //   "review": "Cras non velit nec nisi vulputate nonummy.",
+    //   "rating": 4.2,
+    //   "user_id": 25,
+    //   "book_id": 47,
+    //   "createdAt": "2022-11-12T20:57:04.000Z",
+    //   "updatedAt": "2022-11-12T20:57:04.000Z"
+    // },  
+  return(
+    <div className="datalist">
+        <h2 className="themeFontColor text-center">
+        <center>Data from LibraryVerse {endPoint}</center>
+        </h2>
+      {loading && <div>A moment please...</div>}
+      {error && (
+        <div>{`There is a problem fetching the post data - ${error}`}</div>
+      )}
+      <center><table className="table table-hover">
+        <thead>
+          <tr>
+            <th>Rating</th>
+            <th>Review</th>
+            <th>User Id</th>
+            <th>Book Id</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+        {data &&
+          data.map((item) => (
+        <tr key={item.id}>
+          <td>{item.rating}</td>
+          <td>{item.review}</td>
+          <td>{item.user_id}</td>
+          <td>{item.book_id}</td>
+        </tr>
+        ))}      
+        </tbody>
+      </table></center>
+    </div>
+);
+case "order":
+  // "message": "Heres the orders you were looking for",
+	// "orders": [
+	// 	{
+	// 		"id": 1,
+	// 		"user_id": 17,
+	// 		"payment_amount": 11.99,
+	// 		"order_date": "2022-11-12T20:57:04.000Z",
+	// 		"createdAt": "2022-11-12T20:57:04.000Z",
+	// 		"updatedAt": "2022-11-12T20:57:04.000Z"
+	// 	},
+	// 	{
+	// 		"id": 2,
+	// 		"user_id": 1,
+	// 		"payment_amount": 11.99,
+	// 		"order_date": "2022-11-12T20:57:04.000Z",
+	// 		"createdAt": "2022-11-12T20:57:04.000Z",
+	// 		"updatedAt": "2022-11-12T20:57:04.000Z"
+	// 	},
+  return(
+    <div className="datalist">
+        <h2 className="themeFontColor text-center">
+        <center>Data from LibraryVerse {endPoint}</center>
+        </h2>
+      {loading && <div>A moment please...</div>}
+      {error && (
+        <div>{`There is a problem fetching the post data - ${error}`}</div>
+      )}
+      <center><table className="table table-hover">
+      
+        <thead>
+        
+          <tr>
+            <th>User Id</th>
+            <th>Payment Amount</th>
+            <th>Order date</th>            
+          </tr>
+        </thead>
+        <tbody>
+        {data &&
+          data.orders.map((item) => (
+        <tr key={item.id}>
+          <td>{item.user_id}</td>
+          <td>{item.payment_amount}</td>
+          <td>{item.order_date}</td>
+        </tr>
+        ))}      
+        </tbody>
+      </table></center>
+    </div>
+);
   default:
     return;
   }

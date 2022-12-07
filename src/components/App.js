@@ -1,10 +1,15 @@
-import React from 'react';
+//import React from 'react';
+import Banner from "./banner";
+import DataList from "./dataList";
 
 const App = () => {
    return (
-      <div>
-         LibraryVerse!
-      </div>
+      <>
+      <Banner>
+         <div>LibraryVerse!</div>
+      </Banner>
+      <DataList/>
+      </>
    );
 };
 

@@ -18,3 +18,25 @@ code {
   width: 15%;
   cursor: pointer;
 }
+h2{
+  border-width: 25px;
+  border-color: black;
+}
+table{
+  margin: 25px;
+  background-color: beige;
+  border-color: black;
+}
+
+tr{
+  padding: 25px;
+  border-color: black;
+}
+
+td{
+  border-color: darkgreen;
+}
+
+thead{
+  background-color: coral;
+}

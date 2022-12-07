@@ -50,14 +50,14 @@ switch (endPoint){
   case "category":
     return (
       <div className="datalist">
-          <h1 className="themeFontColor text-center">
-            Data from LibraryVerse {endPoint}
-          </h1>
+          <h2 className="themeFontColor text-center">
+            <center>Data from LibraryVerse {endPoint}</center>
+          </h2>
         {loading && <div>A moment please...</div>}
         {error && (
           <div>{`There is a problem fetching the post data - ${error}`}</div>
         )}
-        <table className="table table-hover">
+        <center><table className="table table-hover">
           <thead>
             <tr>
               <th>Genre</th>
@@ -76,34 +76,34 @@ switch (endPoint){
           </tr>
           ))}      
           </tbody>
-        </table>
+        </table></center>
       </div>
     );
 
     case "book":
       return(
           <div className="datalist">
-              <h1 className="themeFontColor text-center">
-                Data from LibraryVerse {endPoint}
-              </h1>
+              <h2 className="themeFontColor text-center">
+              <center>Data from LibraryVerse {endPoint}</center>
+              </h2>
             {loading && <div>A moment please...</div>}
             {error && (
               <div>{`There is a problem fetching the post data - ${error}`}</div>
             )}
-            <table className="table table-hover">
+            <center><table className="table table-hover">
               <thead>
                 <tr>
                   <th>Book Name</th>
                   <th>Description</th>
                   <th>Publication date</th>
                   
-                  <th>AuthorId</th>
+                  {/* <th>AuthorId</th> */}
                   <th>Author</th>
                   
-                  <th>EditorialId</th>
+                  {/* <th>EditorialId</th> */}
                   <th>Editorial</th>
 
-                  <th>CategoryId</th>
+                  {/* <th>CategoryId</th> */}
                   <th>Category Genre</th>
                 </tr>
               </thead>
@@ -115,18 +115,18 @@ switch (endPoint){
                 <td>{item.description}</td>
                 <td>{item.publication_date}</td>
                                 
-                <td>{item.AuthorId}</td>
+                {/* <td>{item.AuthorId}</td> */}
                 <td>{item.Author.name}</td>
 
-                <td>{item.EditorialId}</td>
+                {/* <td>{item.EditorialId}</td> */}
                 <td>{item.Editorial.name}</td>
 
-                <td>{item.CategoryId}</td>
+                {/* <td>{item.CategoryId}</td> */}
                 <td>{item.Category.genre}</td>
               </tr>
               ))}      
               </tbody>
-            </table>
+            </table></center>
           </div>
       );
     
@@ -145,14 +145,14 @@ switch (endPoint){
 		// 	},
       return(
           <div className="datalist">
-              <h1 className="themeFontColor text-center">
-                Data from LibraryVerse {endPoint}
-              </h1>
+              <h2 className="themeFontColor text-center">
+              <center>Data from LibraryVerse {endPoint}</center>
+              </h2>
             {loading && <div>A moment please...</div>}
             {error && (
               <div>{`There is a problem fetching the post data - ${error}`}</div>
             )}
-            <table className="table table-hover">
+            <center><table className="table table-hover">
               <thead>
                 <tr>
                   <th>Author</th>
@@ -173,7 +173,7 @@ switch (endPoint){
               </tr>
               ))}      
               </tbody>
-            </table>
+            </table></center>
           </div>
       );
 

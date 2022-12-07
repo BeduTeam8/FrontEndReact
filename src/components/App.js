@@ -6,7 +6,7 @@ const listEndPoints=
 ['','category','book','author','editorial','review','order',
 'users','users/signUp','users/logIn','library','rol']
 
-const indexEndPoint=3;
+const indexEndPoint=2;
 const endPoint=listEndPoints[indexEndPoint];
 
 const App = () => {

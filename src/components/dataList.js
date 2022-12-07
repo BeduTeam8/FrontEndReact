@@ -331,6 +331,83 @@ case "order":
       </table></center>
     </div>
 );
+case 'users':
+  // {
+  //   "message": "here are all the users",
+  //   "users": [
+  //     {
+  //       "id": 1,
+  //       "username": "mgarmon0",
+  //       "firstname": "Melanie",
+  //       "lastname": "Garmon",
+  //       "address": "1286 Carpenter Crossing",
+  //       "email": "mgarmon0@aboutads.info",
+  //       "password_hash": "XXXX",
+  //       "password_salt": "XXXX",
+  //       "phonenumber": "252-459-7830",
+  //       "membersince": "2021-12-09T19:16:50Z",
+  //       "credit_card_type": null,
+  //       "credit_card": "5108759527443478",
+  //       "rol": 2,
+  //       "isPremium": false,
+  //       "isActive": true,
+  //       "createdAt": "2022-11-12T20:57:03.000Z",
+  //       "updatedAt": "2022-11-12T20:57:03.000Z"
+  //     },
+  //     {
+  //       "id": 2,
+  //       "username": "mbarnwall1",
+  return(
+    <div className="datalist">
+        <h2 className="themeFontColor text-center">
+        <center>Data from LibraryVerse {endPoint}</center>
+        </h2>
+      {loading && <div>A moment please...</div>}
+      {error && (
+        <div>{`There is a problem fetching the post data - ${error}`}</div>
+      )}
+      <center><table className="table table-hover">
+      
+        <thead>
+        
+          <tr>
+            <th>Username</th>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Address</th>
+            <th>E-mail</th>
+            <th>Phone</th>
+            <th>Member Since</th>
+            <th>Credit Card Type</th>
+            <th>Credit Card</th>
+            <th>Rol</th> 
+            <th>Premium</th>
+            <th>Active</th>
+          </tr>
+        </thead>
+        <tbody>
+        {data &&
+          data.users.map((item) => (
+        <tr key={item.id}>
+          <td>{item.username}</td>
+          <td>{item.firstname}</td>
+          <td>{item.lastname}</td>
+          <td>{item.address}</td>
+          <td>{item.email}</td>
+          <td>{item.phonenumber}</td>
+          <td>{item.membersince}</td>
+          <td>{item.credit_card_type}</td>
+          <td>{item.credit_card}</td>
+          <td>{item.rol}</td>
+          <td>{item.isPremium}</td>
+          <td>{item.isActive}</td>
+
+        </tr>
+        ))}      
+        </tbody>
+      </table></center>
+    </div>
+);
   default:
     return;
   }

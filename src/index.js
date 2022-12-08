@@ -19,6 +19,7 @@ import {
 	RouterProvider,
 	Route,
 } from "react-router-dom";
+import SearchResults from "./pages/SearchResults";
 /* Here is the explanation for the code above:
   1. We import 3 functions from the 'react-router-dom' package.
   2. The createRoutesFromElements function creates an array of routes from an array of elements.
@@ -31,6 +32,10 @@ const router = createBrowserRouter(
 		<Route path="/" element={<Root />} errorElement={<Error />}>
 			<Route errorElement={<Error />}>
 				<Route index element={<SearchPage />} />
+				<Route path="/about" element={<About />} />
+				<Route path="/login" element={<Login />} />
+				<Route path="/signup" element={<Signup />} />
+				<Route path="/searchresults" element={<SearchResults />} />
 			</Route>
 		</Route>
 	)

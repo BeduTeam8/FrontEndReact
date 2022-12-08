@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Logo from "../components/Logo";
 
 const drawerWidth = 500;
@@ -27,17 +27,25 @@ function ResponsiveDrawer(props) {
 
 	const drawer = (
 		<div style={{ background: "rgba(245, 184, 65, 1)" }}>
+			{/* logo with prop mode dark */}
+			<Logo mode="dark" />
 			<Toolbar />
-			<Logo />
 			<Divider />
-
 			<List>
 				<ListItem>
-					<Link to="/">This is a test</Link>
+					<Link to="/login">Login</Link>
 				</ListItem>
 
 				<ListItem>
 					<Link to="/about">About</Link>
+				</ListItem>
+
+				<ListItem>
+					<Link to="/signup">Signup</Link>
+				</ListItem>
+
+				<ListItem>
+					<Link to="/searchpage">Search</Link>
 				</ListItem>
 			</List>
 			<Divider />
@@ -49,6 +57,7 @@ function ResponsiveDrawer(props) {
 
 	return (
 		<Box sx={{ display: "flex" }}>
+			<Outlet />
 			<Box
 				position="fixed"
 				sx={{

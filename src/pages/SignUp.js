@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Signup() {
 	return (
-		<div>
-			<h1>Signup</h1>
+		<div style={{ display: "flex", flexDirection: "row-end" }}>
+			<h1>This is the sign up page</h1>
 		</div>
 	);
 }

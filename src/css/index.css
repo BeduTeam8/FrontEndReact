@@ -228,23 +228,23 @@ body {
 	--color-dark-blue-800: 44, 55, 58;
 	--color-dark-blue-900: 22, 28, 29;
 	--color-dark-blue-950: 11, 14, 14;
-	--Primary-color-mid-yellow-500: 245, 185, 65;
 	--Primary-color-mid-yellow-50: 254, 246, 231;
 	--Primary-color-mid-yellow-100: 252, 237, 207;
 	--Primary-color-mid-yellow-200: 250, 219, 158;
 	--Primary-color-mid-yellow-300: 247, 201, 110;
 	--Primary-color-mid-yellow-400: 245, 184, 61;
 	--Primary-color-mid-yellow-600: 194, 133, 10;
+	--Primary-color-mid-yellow-500: 245, 185, 65;
 	--Primary-color-mid-yellow-700: 145, 99, 8;
 	--Primary-color-mid-yellow-800: 97, 66, 5;
 	--Primary-color-mid-yellow-900: 48, 33, 3;
 	--Primary-color-mid-yellow-950: 24, 17, 1;
-	--Secondary-color-med-red-500: 254, 96, 85;
 	--Secondary-color-med-red-50: 255, 231, 230;
 	--Secondary-color-med-red-100: 255, 208, 204;
 	--Secondary-color-med-red-200: 254, 160, 154;
 	--Secondary-color-med-red-300: 254, 113, 103;
 	--Secondary-color-med-red-400: 254, 66, 52;
+	--Secondary-color-med-red-500: 254, 96, 85;
 	--Secondary-color-med-red-600: 203, 15, 1;
 	--Secondary-color-med-red-700: 152, 11, 1;
 	--Secondary-color-med-red-800: 101, 7, 1;
@@ -412,9 +412,7 @@ body {
 	font-weight: var(--fontweight-900);
 }
 
-main {
-	padding: 2rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+/* color classes */
+.C-White {
+	color: rgb(var(--color-white));
 }

@@ -14,9 +14,9 @@ export default function BarSearch() {
     component="form"
         sx={{ m: 'auto', display: 'flex', flexDirection: 'column', width: 600 }}>
     <Paper
-        sx={{ m: '-5px auto -5px 30px',p:'auto -5px' ,width: 80 }}
+        sx={{ m: '-5px auto -5px 30px',p:'auto -5px' ,width: 120 }}
     >
-    <BasicMenu sx={{width:80 }}></BasicMenu>
+    <BasicMenu></BasicMenu>
     </Paper>
     <Paper
       component="form"

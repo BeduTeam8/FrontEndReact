@@ -5,15 +5,32 @@ import MenuItem from '@mui/material/MenuItem';
 
 
 export default function BasicMenu() {
+  let menu = ["opcion1","opcion2","opcion3","opcion4"]
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+  
+  let [opciones,setOpciones] = React.useState('Opciones'
+);
+  const open =  Boolean(anchorEl);
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
+  const handleClose = (event) => {
     setAnchorEl(null);
+    if(event.target.innerText!==""){
+    setOpciones(opciones = event.target.innerText)
+    }else(setOpciones(opciones="Opciones"))
+
   };
-  let Opciones = 'Opciones';
+
+  function SetMenu(){
+    let menuready = menu.map((element)=>{
+      return <MenuItem onClick={handleClose}>{element}</MenuItem>
+    })
+    return menuready
+
+  }
+  
 
   return (
     <div>
@@ -25,7 +42,7 @@ export default function BasicMenu() {
         onClick={handleClick}
         style={{textTransform:'none'}}
       >
-        {Opciones}
+        {opciones}
       </Button>
       <Menu
         id="basic-menu"
@@ -36,9 +53,8 @@ export default function BasicMenu() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        
+      {SetMenu()}
       </Menu>
     </div>
   );

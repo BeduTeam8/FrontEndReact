@@ -19,7 +19,6 @@
 	gap: 2.5rem;
 	position: fixed;
 	top: 0;
-	left: 0;
 	z-index: 100;
 	border-radius: 0px 16px 16px 0px;
 	padding-block: 11.8125rem;
@@ -28,8 +27,18 @@
 	transition: all 0.5s ease-in-out;
 }
 /* when drawer wrapper is not hoverd move to left */
+.Hover {
+	transform: translateX(0);
+}
+/* wait 1 second before adding not hover */
 .Hover:not(:hover) {
+	transition-delay: 0.5s;
 	transform: translateX(-26rem);
+}
+
+/* before not hover smooth trasnition */
+.Hover:not(:hover) > .Drawer-wrapper {
+	transition: all 0.5s ease-in-out;
 }
 
 main {
@@ -56,6 +65,7 @@ main {
 .Nav-Buttons > a,
 .Nav-Buttons > a > button {
 	width: 100%;
+	height: 3rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -83,4 +93,34 @@ main {
 	margin: 0;
 	padding: 0;
 	opacity: 10%;
+}
+
+/* SignupNav Components */
+.TextBox {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.TextField > * {
+	width: 100%;
+	padding-block: 0.2 !important;
+	color: rgb(var(--Secondary-color-med-red-500)) !important;
+	background-color: rgb(var(--Primary-color-mid-yellow-400));
+}
+
+.Nav-Login {
+	width: 40rem;
+	outline: 2px solid lime !important;
+}
+
+.Nav-Signup {
+	width: 45rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+	transform: translate(0, 0);
+	outline: 2px solid rgb(7, 65, 255) !important;
+	border-radius: 16px 0px 0px 16px;
 }

@@ -32,18 +32,7 @@ import { Visibility , VisibilityOff  } from "@mui/icons-material/";
         <ThemeProvider theme={theme}>
              <ListItem className="Nav-Buttons">
 				<Box className="TextBox">
-					<TextField
-						helperText=" "
-						id="demo-helper-text-aligned"
-						label="First Name"
-						className="TextField"
-					/>
-						<TextField
-						helperText=" "
-						id="demo-helper-text-aligned"
-						label="Last Name"
-						className="TextField"
-					/>
+					
 						<TextField
 						required
 						helperText="Please enter your username"
@@ -87,14 +76,14 @@ import { Visibility , VisibilityOff  } from "@mui/icons-material/";
 					</Box>
 				</ListItem>
 			<ListItem className="Nav-Buttons">
-					<Link to="/signup">
-						<Button variant="contained" className="Login-Button">SignUp</Button>
-					</Link>
-					<Link to="/login">
-						<Button variant="outlined" >
-							Login
-						</Button>
-					</Link>
+			<Link to="/signup">
+							<Button variant="outlined">Signup</Button>
+						</Link>
+						<Link to="/login">
+							<Button variant="contained" className="Login-Button">
+								Login
+							</Button>
+						</Link>
 			</ListItem>
 	</ThemeProvider>
     );

@@ -13,6 +13,7 @@ import Login from "./pages/LogIn";
 import Signup from "./pages/SignUp";
 import Error from "./pages/404Error";
 import BookDetails from "./pages/BookDetails";
+import Genres from "./pages/Genres";
 
 import {
 	createRoutesFromElements,
@@ -36,6 +37,7 @@ const router = createBrowserRouter(
 				<Route path="/about" element={<About />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />
+				<Route path="/genres" element={<Genres />} />
 				<Route path="/searchResults" element={<SearchResults />} />
 				<Route path="/bookdetails" element={<BookDetails />} />
 				<Route path="*" element={<Error />} />

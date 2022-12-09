@@ -7,9 +7,9 @@ import LogoDesat from "../assets/Logo-LibraryVerse-Desat.png"
 
 const Logo = ({ mode }) => {
     return (
-        <div className="logo-wrapper">
+        <a href="/" className="logo-wrapper">
             <img src={mode === "light" ? Logo500 : LogoDesat} alt="logo" />
-        </div>
+        </a>
     );
 };  
 

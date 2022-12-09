@@ -27,6 +27,14 @@ import { Search, AutoStories } from "@mui/icons-material/";
 						</Link>
 					</ListItem>
 					<ListItem className="Nav-Buttons">
+						<Link to="/genres">
+							<Button variant="outlined">
+								<AutoStories sx={{ width: "1.2rem" }} />
+								Genres
+							</Button>
+						</Link>
+					</ListItem>
+					<ListItem className="Nav-Buttons">
 						<Link to="/signup">
 							<Button variant="outlined">Signup</Button>
 						</Link>

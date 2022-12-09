@@ -197,13 +197,13 @@ body {
 	width: 100%;
 	height: 100vh;
 	outline: 1px solid red;
+	transition: all 0.5s ease-in-out;
 }
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	transition: all 0.2s ease-in-out;
 
 	--color-white: 255, 255, 255;
 	--color-light-blue-50: 239, 246, 246;
@@ -293,6 +293,8 @@ body {
 	--fontweight-700: 700;
 	--fontweight-800: 800;
 	--fontweight-900: 900;
+
+	--c: #f5c972;
 }
 
 /* font family classes */

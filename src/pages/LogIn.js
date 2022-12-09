@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Login() {
 	return (
-		<div>
-			<h1>Login</h1>
-		</div>
+		<main>
+			<h1 className="FS-64px FW-900 FF-Inter">Login</h1>
+		</main>
 	);
 }

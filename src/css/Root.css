@@ -1,0 +1,22 @@
+.Drawer-wrapper {
+	background-color: rgb(var(--Primary-color-mid-yellow-500));
+	width: 28rem;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	gap: 2.5rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	border-radius: 0px 16px 16px 0px;
+
+	transition: all 0.5s ease-in-out;
+}
+/* when drawer wrapper is not hoverd move to left */
+.Drawer-wrapper:not(:hover) {
+	transform: translateX(-26rem);
+}

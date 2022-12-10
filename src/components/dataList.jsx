@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useState,useEffect } from "react";
 //import DataRow from "./dataRow";
- //const URL="https://libroverse-production.up.railway.app";
+// const URL="https://libroverse-production.up.railway.app/";
 const URL="http://localhost:4000/"
 
 const DataList = ({endPoint}) => {
@@ -23,14 +23,16 @@ const DataList = ({endPoint}) => {
       );
       console.log("response de Axios:", response);
       console.log("response.data de Axios:", response.data);
-      if (!response.ok) {
+      if (!response.statusText==="OK") {
         throw new Error(
           `AXIOS-This is an HTTP error: The status is ${response.status}`
         );
       }
 
       //let actualData = await response.data.json();
-      let actualData = response.data; 
+      let actualData = response.data;
+      //let actualData = await actual.json()
+
       console.log(`AXIOS-actualData from API: ${actualData}`);
       setData(actualData);
       setError(null);
@@ -44,7 +46,7 @@ const DataList = ({endPoint}) => {
     }  
   }
   getData()
-}, [])
+}, [endPoint])
 
 
   
@@ -57,7 +59,7 @@ const DataList = ({endPoint}) => {
 //     "Books": [
 
   
-console.log("AXIOS-data before return:Endpoint: ",endPoint," Data:", data)
+console.log("AXIOS-data before switch-case:Endpoint: ",endPoint," Data:", data)
 switch (endPoint){
   case "category":
     return (

@@ -2,8 +2,11 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { PropTypes } from "react";
 
-export default function BasicMenu() {
+
+
+export default function BasicMenu(props) {
 	let menu = ["Books", "Genre", "Author", "Editorial"];
 	const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -17,12 +20,13 @@ export default function BasicMenu() {
 		setAnchorEl(null);
 		if (event.target.innerText !== "") {
 			setOpciones((opciones = event.target.innerText));
-		} else setOpciones((opciones = "Opciones"));
+			props.onMenuItemSelect(event.target.innerText);
+		} else setOpciones((opciones = "Books"));
 	};
 
 	function SetMenu() {
 		let menuready = menu.map((element) => {
-			return <MenuItem onClick={handleClose}>{element}</MenuItem>;
+			return <MenuItem className="transparent BasicMenu-Item" onClick={handleClose}>{element}</MenuItem>;
 		});
 		return menuready;
 	}
@@ -30,7 +34,7 @@ export default function BasicMenu() {
 	// add handlesearch as params to menu
 
 	return (
-		<div>
+		<div className="transparent ">
 			<Button
 				id="basic-button"
 				aria-controls={open ? "basic-menu" : undefined}
@@ -38,10 +42,12 @@ export default function BasicMenu() {
 				aria-expanded={open ? "true" : undefined}
 				onClick={handleClick}
 				style={{ textTransform: "none" }}
+				className=" BasicMenu-Button"
 			>
 				{opciones}
 			</Button>
 			<Menu
+				className=" BasicMenu"
 				id="basic-menu"
 				anchorEl={anchorEl}
 				open={open}

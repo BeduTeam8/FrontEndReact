@@ -8,37 +8,84 @@ import SearchIcon from "@mui/icons-material/Search";
 import CancelIcon from "@mui/icons-material/Cancel";
 import BasicMenu from "./MenuInSearchResults";
 
+
+
+// create 
+const books = [  "The Great Gatsby",  "Moby-Dick",  "One Hundred Years of Solitude",  "Pride and Prejudice",  "War and Peace",];
+
+// Shuffle the books array using the Fisher-Yates algorithm
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+;
+
+// create a switch case function based on the state of BasicMenu and export placeholder for inputbase
+const Placeholder = (props) => { // create a component called Placeholder
+	const placeholder = (BasicMenu) => { // create a function called placeholder
+	  switch (BasicMenu) { // check the value of BasicMenu
+		case "Books":
+		  return "Intrested in reading "+ (
+			books[Math.floor(Math.random() * books.length)] 
+			+ "?"
+			// return a random book from the books array
+		  )
+		  ; // return a string
+		case "Genre":
+		  return "Search for genre";
+		case "Author":
+		  return "Search for your favorite author";
+		case "Editorial":
+		  return "Search for editorial";
+		default:
+		  return "Looking for a book to read?";
+	  }
+	}
+  
+	return ( // return the following code
+	  <InputBase
+		className="InputBase"
+		placeholder={placeholder(props.BasicMenu)} // call the placeholder function and pass the value of BasicMenu as an argument
+		inputProps={{ "aria-label": "Search Bar" }}
+	  />
+	);
+  }
+
+
 export default function BarSearch() {
+
+	// 1. Define a state variable to hold the current menu item
+	const [basicMenu, setBasicMenu] = React.useState("Books");
+
+	// 2. Define a function that will update the menu item state variable
+	function handleMenuItemSelect(menuItem) {
+	  setBasicMenu(menuItem);
+	}
+
 	return (
 		<Paper
-		className="DropDown"
+		className="DropDown transparent "
 			component="form"
 			sx={{ m: "auto", display: "flex", flexDirection: "column", width: 600 }}
 		>
-			<Paper sx={{ m: "-5px auto -5px 30px", p: "auto -5px", width: 120 }}>
-				<BasicMenu className="BasicMenu"></BasicMenu>
+			<Paper className="BasicMenu-Container">
+			<BasicMenu onMenuItemSelect={handleMenuItemSelect} />
+
 			</Paper>
 			<Paper
-			className="SearchBar"
+			className="SearchBar transparent"
 				component="form"
-				sx={{
-					p: "2px auto",
-					m: "auto",
-					display: "flex",
-					alignItems: "center",
-					width: 600,
-				}}
+
 			>
 				<IconButton type="button" sx={{ p: "10px" }} aria-label="search">
-					<SearchIcon />
+					<SearchIcon className="SearchBar-Icon" />
 				</IconButton>
-				<InputBase
-					sx={{ ml: 1, flex: 2 }}
-					placeholder="Search for a book."
-					inputProps={{ "aria-label": "Search Bar" }}
-				/>
+				<Placeholder BasicMenu={basicMenu} />
 				<IconButton sx={{ p: "10px" }} aria-label="menu">
-					<CancelIcon />
+					<CancelIcon  className="SearchBar-Icon" />
 				</IconButton>
 			</Paper>
 		</Paper>

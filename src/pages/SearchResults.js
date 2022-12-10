@@ -1,6 +1,7 @@
 import React from "react";
 //import Banner from "../components/banner";
 import BarSearch from "../components/BarSearch";
+import "../css/SearchResults.css";
 //import BasicMenu from "../components/MenuInSearchResults";
 
 // depending on menu selection send search bar route path to search results page
@@ -22,11 +23,11 @@ import BarSearch from "../components/BarSearch";
 
 function SearchResult() {
 	return (
-		<div>
+		<main className="searchResults">
 			<BarSearch></BarSearch>
 
-			<h1>Hola Mundo d </h1>
-		</div>
+			<h1>Testing</h1>
+		</main>
 	);
 }
 

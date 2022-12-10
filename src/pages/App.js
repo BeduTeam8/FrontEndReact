@@ -1,3 +1,4 @@
+import axios from 'axios'
 //import React from 'react';
 import Banner from "../components/banner";
 import DataList from "../components/dataList";

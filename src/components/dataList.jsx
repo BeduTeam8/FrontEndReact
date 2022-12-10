@@ -1,29 +1,41 @@
+import axios from 'axios'
 import React, { useState,useEffect } from "react";
-import DataRow from "./dataRow";
+//import DataRow from "./dataRow";
  //const URL="https://libroverse-production.up.railway.app";
-//const URL="http://localhost:4000"
+const URL="http://localhost:4000/"
 
 const DataList = ({endPoint}) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  console.log("Endpint iniciando: DataList",endPoint);
+  console.log("AXIOS-Endpint iniciando: DataList",URL+endPoint);
 
  useEffect(() => {
   const getData = async () => {
     try {
-      const response = await fetch(endPoint,{mode:'cors'}
+      const response = await axios.get(`${URL+endPoint}`,{
+        'headers':{
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials':true,
+          'Content-Type': 'application/json',
+                }
+              }
       );
-
+      console.log("response de Axios:", response);
+      console.log("response.data de Axios:", response.data);
       if (!response.ok) {
         throw new Error(
-          `This is an HTTP error: The status is ${response.status}`
+          `AXIOS-This is an HTTP error: The status is ${response.status}`
         );
       }
-      let actualData = await response.json();
+
+      //let actualData = await response.data.json();
+      let actualData = response.data; 
+      console.log(`AXIOS-actualData from API: ${actualData}`);
       setData(actualData);
       setError(null);
-      console.log("data length from API:",Object.keys(actualData).length);
+      console.log("AXIOS-data length from API:",Object.keys(actualData).length);
+      
     } catch(err) {
       setError(err.message);
       setData(null);
@@ -32,7 +44,7 @@ const DataList = ({endPoint}) => {
     }  
   }
   getData()
-}, [endPoint])
+}, [])
 
 
   
@@ -45,7 +57,7 @@ const DataList = ({endPoint}) => {
 //     "Books": [
 
   
-console.log("data before return:Endpoint: ",endPoint, data)
+console.log("AXIOS-data before return:Endpoint: ",endPoint," Data:", data)
 switch (endPoint){
   case "category":
     return (

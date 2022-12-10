@@ -14,7 +14,7 @@ const DataList = ({endPoint}) => {
     try {
       const response = await fetch(endPoint,{mode:'cors'}
       );
-
+      console.log("Fetch response:",response)
       if (!response.ok) {
         throw new Error(
           `This is an HTTP error: The status is ${response.status}`

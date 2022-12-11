@@ -79,7 +79,7 @@ function ClassNameRenderSwitch() {
 // Responsive drawer component
 function ResponsiveDrawer() {
 	return (
-		<>
+		<div className="Flex-test">
 			{/* toggle hover class on nav  */}
 			<nav className={"Drawer-wrapper" + " " + ClassNameRenderSwitch()}>
 				{/* logo with prop mode dark */}
@@ -91,7 +91,7 @@ function ResponsiveDrawer() {
 				<Divider />
 			</nav>
 			<Outlet />
-		</>
+		</div>
 	);
 }
 

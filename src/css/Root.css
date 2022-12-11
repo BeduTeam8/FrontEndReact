@@ -1,5 +1,4 @@
 .Drawer-wrapper {
-	/* baground gradient  */
 	background: rgb(var(--Primary-color-mid-yellow-500))
 		linear-gradient(
 			180deg,
@@ -28,12 +27,12 @@
 }
 /* when drawer wrapper is not hoverd move to left */
 .Hover {
-	transform: translateX(0);
+	transform: translateX(-26rem);
 }
 /* wait 1 second before adding not hover */
-.Hover:not(:hover) {
+.Hover:hover {
 	transition-delay: 0.5s;
-	transform: translateX(-26rem);
+	transform: translateX(0);
 }
 
 /* before not hover smooth trasnition */
@@ -112,7 +111,6 @@ main {
 
 .Nav-Login {
 	width: 40rem;
-	outline: 2px solid lime !important;
 }
 
 .Nav-Signup {
@@ -121,6 +119,18 @@ main {
 	top: 0;
 	left: 0;
 	transform: translate(0, 0);
-	outline: 2px solid rgb(7, 65, 255) !important;
+
 	border-radius: 16px 0px 0px 16px;
+}
+
+/* main conent when hover not hover move main */
+.DrawerOpen {
+	margin-left: 45rem;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2.5rem;
+	transition: all 0.3s ease-in;
 }

@@ -1,12 +1,14 @@
-
 import React from "react";
 
 import { useRouteError } from "react-router-dom";
 
-export default function ErrorPage() {
+function ErrorBoundary() {
 	const error = useRouteError();
 	console.error(error);
+	return <div>{error.message}</div>;
+}
 
+export default function ErrorPage() {
 	return (
 		<main id="error-page" style={{ gap: "2rem", paddingBlock: "5rem" }}>
 			{/* 404 img */}
@@ -20,7 +22,9 @@ export default function ErrorPage() {
 				Sorry, an unexpected error has occurred.
 			</p>
 			<p className="FS-16px FW-900 FF-Inter">
-				<i>{error.statusText || error.message}</i>
+				<i>
+					<ErrorBoundary />
+				</i>
 			</p>
 		</main>
 	);

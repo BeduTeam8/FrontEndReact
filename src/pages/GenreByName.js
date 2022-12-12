@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 
 export default function GenreByName() {
@@ -31,8 +32,10 @@ export default function GenreByName() {
 			<p>{genreData.description}</p>
 			{genreData.Books.map((Books) => (
 				<div key={Books.id}>
-					<h2>{Books.book_name}</h2>
-					<p>{Books.description}</p>
+					<Link to={`/book/id/${Books.id}`}>
+						<h2 className="FS-20px FF-Alegreya FW-500">{Books.book_name}</h2>
+						<p className="FS-10px FF-Inter FW-300">{Books.description}</p>
+					</Link>
 				</div>
 			))}
 		</main>

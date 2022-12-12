@@ -40,10 +40,12 @@ const router = createBrowserRouter(
 				<Route path="/signup" element={<Signup />} />
 				<Route path="/genres" element={<Genres />} />
 				<Route path="/searchResults" element={<SearchResults />} />
-				<Route path="/bookdetails" element={<BookDetails />} />
+				{/* <Route path="/bookdetails" element={<BookDetails />} /> */}
 				<Route path="*" element={<Error />} />
 				{/* render Genreby name when route catagory/id {genre} is called */}
 				<Route path="/category/id/:genre" element={<GenreByName />} />
+				{/* Render BookById with route as book by id */}
+				<Route path="/book/id/:id" element={<BookDetails />} />
 			</Route>
 		</Route>
 	)

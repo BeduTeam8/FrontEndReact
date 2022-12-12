@@ -414,6 +414,35 @@ body {
 	font-weight: var(--fontweight-900);
 }
 
+/* text clases */
+.T-Left {
+	text-align: left;
+}
+
+.T-Center {
+	text-align: center;
+}
+
+.T-Right {
+	text-align: right;
+}
+
+.T-Justify {
+	text-align: justify;
+}
+
+.T-Upper {
+	text-transform: uppercase;
+}
+
+.T-Lower {
+	text-transform: lowercase;
+}
+
+.T-Capitalize {
+	text-transform: capitalize;
+}
+
 /* color classes */
 .C-White {
 	color: rgb(var(--color-white));

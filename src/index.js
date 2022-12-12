@@ -14,6 +14,7 @@ import Signup from "./pages/SignUp";
 import Error from "./pages/404Error";
 import BookDetails from "./pages/BookDetails";
 import Genres from "./pages/Genres";
+import GenreByName from "./pages/GenreByName";
 
 import {
 	createRoutesFromElements,
@@ -41,6 +42,8 @@ const router = createBrowserRouter(
 				<Route path="/searchResults" element={<SearchResults />} />
 				<Route path="/bookdetails" element={<BookDetails />} />
 				<Route path="*" element={<Error />} />
+				{/* render Genreby name when route catagory/id {genre} is called */}
+				<Route path="/category/id/:genre" element={<GenreByName />} />
 			</Route>
 		</Route>
 	)

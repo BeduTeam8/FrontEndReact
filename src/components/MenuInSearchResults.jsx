@@ -2,7 +2,7 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { PropTypes } from "react";
+//import { PropTypes } from "react";
 
 
 
@@ -17,6 +17,7 @@ export default function BasicMenu(props) {
 		setAnchorEl(event.currentTarget);
 	};
 	const handleClose = (event) => {
+		console.log(event.target.innerText)
 		setAnchorEl(null);
 		if (event.target.innerText !== "") {
 			setOpciones((opciones = event.target.innerText));

@@ -13,18 +13,20 @@ import BasicMenu from "./MenuInSearchResults";
 // create 
 const books = [  "The Great Gatsby",  "Moby-Dick",  "One Hundred Years of Solitude",  "Pride and Prejudice",  "War and Peace",];
 
-// Shuffle the books array using the Fisher-Yates algorithm
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
 
-;
 
 // create a switch case function based on the state of BasicMenu and export placeholder for inputbase
 const Placeholder = (props) => { // create a component called Placeholder
+	const [textInput, SetInputText] = React.useState("")
+	function textChange(e){
+		SetInputText(e.target.value)
+
+	}
+	if (props.InputField==="borrar" && textInput !== ""){
+		SetInputText("")
+		console.log("test")
+	}
+
 	const placeholder = (BasicMenu) => { // create a function called placeholder
 	  switch (BasicMenu) { // check the value of BasicMenu
 		case "Books":
@@ -50,6 +52,8 @@ const Placeholder = (props) => { // create a component called Placeholder
 		className="InputBase"
 		placeholder={placeholder(props.BasicMenu)} // call the placeholder function and pass the value of BasicMenu as an argument
 		inputProps={{ "aria-label": "Search Bar" }}
+		onChange={textChange}
+		value={textInput}
 	  />
 	);
   }
@@ -59,10 +63,19 @@ export default function BarSearch() {
 
 	// 1. Define a state variable to hold the current menu item
 	const [basicMenu, setBasicMenu] = React.useState("Books");
-
+	const [EraseInput, setEraseInput] = React.useState("");
 	// 2. Define a function that will update the menu item state variable
 	function handleMenuItemSelect(menuItem) {
 	  setBasicMenu(menuItem);
+	}
+	function eraseText (){
+		setEraseInput("borrar")
+		console.log(EraseInput)
+	}
+	function offeraseText (e){
+		setEraseInput("")
+		console.log(EraseInput)
+		
 	}
 
 	return (
@@ -83,8 +96,12 @@ export default function BarSearch() {
 				<IconButton type="button" sx={{ p: "10px" }} aria-label="search">
 					<SearchIcon className="SearchBar-Icon" />
 				</IconButton>
-				<Placeholder BasicMenu={basicMenu} />
-				<IconButton sx={{ p: "10px" }} aria-label="menu">
+				<Placeholder BasicMenu={basicMenu} InputField={EraseInput}/>
+				<IconButton 
+					sx={{ p: "10px" }} aria-label="menu"
+					onMouseDown={eraseText}
+					onMouseUp={offeraseText}
+					>
 					<CancelIcon  className="SearchBar-Icon" />
 				</IconButton>
 			</Paper>

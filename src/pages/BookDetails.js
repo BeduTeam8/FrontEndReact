@@ -1,8 +1,13 @@
+
+import React from "react";
+import Book from "../components/book";
+import ReturnComponent from "../components/returnComponent"
+import BookInformation from "../components/bookInformation"
+import Reviews from "../components/reviews"
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-// button from material ui
-import { Button } from "@mui/material";
+
 
 export default function BookDetails() {
 	//get location
@@ -29,31 +34,22 @@ export default function BookDetails() {
 	}, [bookId]);
 
 	return (
-		<main>
-			<h2 className="FS-64px FW-900 FF-Inter">Book Details</h2>
-			{/* display book data */}
-			{bookdata && (
-				<div>
-					<h2 className="FS-20px FF-Alegreya FW-500">{bookdata.book_name}</h2>
-					<p className="FS-10px FF-Inter FW-300">{bookdata.description}</p>
 
-					{/* extract Category id from book */}
-					<p className="FS-10px FF-Inter FW-300">
-						Category: {bookdata.CategoryId}
-					</p>
-
-					{/* extract Author id from book */}
-					<p className="FS-10px FF-Inter FW-300">
-						Author: {bookdata.EditorialId}
-					</p>
+		<div className="bookDetails">
+			<h2 className="FS-64px FW-900 FF-Inter" style={{"textAlign": "center", "padding": "32px"}}>Book Details</h2>
+				<ReturnComponent/>
+			<div className="bookAndInfo" style={{"display": "flex", "marginLeft": "20%"}}>
+				<Book/>
+				<BookInformation/>
+			</div>
+			<p style={{"fontWeight": "bold", "color": "#425357", "textAlign": "center", "marginTop": "2rem", "fontSize": "1.3rem"}}>REVIEWS</p>
+			<Reviews/>
+		</div>
 
 					<Link to={location + "/read"}>
 						<Button variant="contained">Read</Button>
 					</Link>
 
-					{/* extract Author name from book */}
-				</div>
-			)}
-		</main>
+
 	);
 }

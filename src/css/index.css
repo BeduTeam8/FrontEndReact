@@ -1,11 +1,183 @@
-body {
+/***
+    The new CSS reset - version 1.7.3 (last updated 7.8.2022)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/* import inter and roboto from google */
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-		sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	background-color: rgb(79, 99, 103);
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+*:where(
+		:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
+	) {
+	all: unset;
+	display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+	cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+	list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+	max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+	border-collapse: collapse;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+	white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+	-webkit-appearance: revert;
+	appearance: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+	color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+	display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly.
+   - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable="false"])) {
+	-moz-user-modify: read-write;
+	-webkit-user-modify: read-write;
+	overflow-wrap: break-word;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+	-webkit-user-drag: element;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: "";
+	content: none;
 }
 
 code {
@@ -13,8 +185,400 @@ code {
 		monospace;
 }
 
-.logo {
-	/* height: 25%; */
-	width: 15%;
-	cursor: pointer;
+body {
+	line-height: 1;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: rgb(79, 99, 103);
+	width: 100%;
+	height: 100vh;
+	outline: 1px solid red;
+	transition: all 0.5s ease-in-out;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+	--color-white: 255, 255, 255;
+	--color-light-blue-50: 239, 246, 246;
+	--color-light-blue-100: 222, 237, 237;
+	--color-light-blue-200: 189, 219, 219;
+	--color-light-blue-300: 156, 201, 201;
+	--color-light-blue-400: 123, 183, 183;
+	--color-light-blue-500: 184, 216, 216;
+	--color-light-blue-600: 72, 132, 132;
+	--color-light-blue-700: 54, 99, 99;
+	--color-light-blue-800: 36, 66, 66;
+	--color-light-blue-900: 18, 33, 33;
+	--color-light-blue-950: 9, 16, 16;
+	--color-dark-blue-50: 241, 243, 244;
+	--color-dark-blue-100: 226, 232, 233;
+	--color-dark-blue-200: 197, 208, 211;
+	--color-dark-blue-300: 168, 185, 189;
+	--color-dark-blue-400: 140, 162, 166;
+	--color-dark-blue-500: 79, 99, 103;
+	--color-dark-blue-600: 89, 111, 115;
+	--color-dark-blue-700: 66, 83, 87;
+	--color-dark-blue-800: 44, 55, 58;
+	--color-dark-blue-900: 22, 28, 29;
+	--color-dark-blue-950: 11, 14, 14;
+	--Primary-color-mid-yellow-50: 254, 246, 231;
+	--Primary-color-mid-yellow-100: 252, 237, 207;
+	--Primary-color-mid-yellow-200: 250, 219, 158;
+	--Primary-color-mid-yellow-300: 247, 201, 110;
+	--Primary-color-mid-yellow-400: 245, 184, 61;
+	--Primary-color-mid-yellow-600: 194, 133, 10;
+	--Primary-color-mid-yellow-500: 245, 185, 65;
+	--Primary-color-mid-yellow-700: 145, 99, 8;
+	--Primary-color-mid-yellow-800: 97, 66, 5;
+	--Primary-color-mid-yellow-900: 48, 33, 3;
+	--Primary-color-mid-yellow-950: 24, 17, 1;
+	--Secondary-color-med-red-50: 255, 231, 230;
+	--Secondary-color-med-red-100: 255, 208, 204;
+	--Secondary-color-med-red-200: 254, 160, 154;
+	--Secondary-color-med-red-300: 254, 113, 103;
+	--Secondary-color-med-red-400: 254, 66, 52;
+	--Secondary-color-med-red-500: 254, 96, 85;
+	--Secondary-color-med-red-600: 203, 15, 1;
+	--Secondary-color-med-red-700: 152, 11, 1;
+	--Secondary-color-med-red-800: 101, 7, 1;
+	--Secondary-color-med-red-900: 51, 4, 0;
+	--Secondary-color-med-red-950: 25, 2, 0;
+
+	/* font family */
+	--font-family-Alegreya: "Alegreya SC", serif;
+	--font-family-Inter: "Inter", sans-serif;
+	--font-family-Roboto: "Roboto", sans-serif;
+
+	/* font size */
+	--fontsize-10px: 0.625rem;
+	--fontsize-12px: 0.75rem;
+	--fontsize-14px: 0.875rem;
+	--fontsize-16px: 1rem;
+	--fontsize-18px: 1.125rem;
+	--fontsize-20px: 1.25rem;
+	--fontsize-22px: 1.375rem;
+	--fontsize-24px: 1.5rem;
+	--fontsize-26px: 1.625rem;
+	--fontsize-28px: 1.75rem;
+	--fontsize-30px: 1.875rem;
+	--fontsize-32px: 2rem;
+	--fontsize-34px: 2.125rem;
+	--fontsize-36px: 2.25rem;
+	--fontsize-38px: 2.375rem;
+	--fontsize-40px: 2.5rem;
+	--fontsize-42px: 2.625rem;
+	--fontsize-44px: 2.75rem;
+	--fontsize-46px: 2.875rem;
+	--fontsize-48px: 3rem;
+	--fontsize-50px: 3.125rem;
+	--fontsize-52px: 3.25rem;
+	--fontsize-54px: 3.375rem;
+	--fontsize-56px: 3.5rem;
+	--fontsize-64px: 4rem;
+
+	/* font weight */
+	--fontweight-100: 100;
+	--fontweight-200: 200;
+	--fontweight-300: 300;
+	--fontweight-400: 400;
+	--fontweight-500: 500;
+	--fontweight-600: 600;
+	--fontweight-700: 700;
+	--fontweight-800: 800;
+	--fontweight-900: 900;
+
+	--c: #f5c972;
+}
+
+/* font family classes */
+.FF-Alegreya {
+	font-family: var(--font-family-Alegreya);
+}
+.FF-Inter {
+	font-family: var(--font-family-Inter);
+}
+.FF-Roboto {
+	font-family: var(--font-family-Roboto);
+}
+
+/* font size classes */
+.FS-10px {
+	font-size: var(--fontsize-10px);
+}
+.FS-12px {
+	font-size: var(--fontsize-12px);
+}
+.FS-14px {
+	font-size: var(--fontsize-14px);
+}
+.FS-16px {
+	font-size: var(--fontsize-16px);
+}
+.FS-18px {
+	font-size: var(--fontsize-18px);
+}
+.FS-20px {
+	font-size: var(--fontsize-20px);
+}
+.FS-22px {
+	font-size: var(--fontsize-22px);
+}
+.FS-24px {
+	font-size: var(--fontsize-24px);
+}
+.FS-26px {
+	font-size: var(--fontsize-26px);
+}
+.FS-28px {
+	font-size: var(--fontsize-28px);
+}
+.FS-30px {
+	font-size: var(--fontsize-30px);
+}
+.FS-32px {
+	font-size: var(--fontsize-32px);
+}
+.FS-34px {
+	font-size: var(--fontsize-34px);
+}
+.FS-36px {
+	font-size: var(--fontsize-36px);
+}
+.FS-38px {
+	font-size: var(--fontsize-38px);
+}
+.FS-40px {
+	font-size: var(--fontsize-40px);
+}
+.FS-42px {
+	font-size: var(--fontsize-42px);
+}
+.FS-44px {
+	font-size: var(--fontsize-44px);
+}
+.FS-46px {
+	font-size: var(--fontsize-46px);
+}
+.FS-48px {
+	font-size: var(--fontsize-48px);
+}
+.FS-50px {
+	font-size: var(--fontsize-50px);
+}
+.FS-52px {
+	font-size: var(--fontsize-52px);
+}
+.FS-54px {
+	font-size: var(--fontsize-54px);
+}
+.FS-56px {
+	font-size: var(--fontsize-56px);
+}
+.FS-64px {
+	font-size: var(--fontsize-64px);
+}
+
+/* font weight classes */
+.FW-100 {
+	font-weight: var(--fontweight-100);
+}
+.FW-200 {
+	font-weight: var(--fontweight-200);
+}
+.FW-300 {
+	font-weight: var(--fontweight-300);
+}
+.FW-400 {
+	font-weight: var(--fontweight-400);
+}
+.FW-500 {
+	font-weight: var(--fontweight-500);
+}
+.FW-600 {
+	font-weight: var(--fontweight-600);
+}
+.FW-700 {
+	font-weight: var(--fontweight-700);
+}
+.FW-800 {
+	font-weight: var(--fontweight-800);
+}
+.FW-900 {
+	font-weight: var(--fontweight-900);
+}
+
+/* color classes */
+.C-White {
+	color: rgb(var(--color-white));
+}
+
+.C-Black {
+	color: rgb(var(--color-black));
+}
+
+.C-Light-Blue-50 {
+	color: rgb(var(--color-light-blue-50));
+}
+
+.C-Light-Blue-100 {
+	color: rgb(var(--color-light-blue-100));
+}
+
+.C-Light-Blue-200 {
+	color: rgb(var(--color-light-blue-200));
+}
+
+.C-Light-Blue-300 {
+	color: rgb(var(--color-light-blue-300));
+}
+
+.C-Light-Blue-400 {
+	color: rgb(var(--color-light-blue-400));
+}
+
+.C-Light-Blue-500 {
+	color: rgb(var(--color-light-blue-500));
+}
+
+.C-Light-Blue-600 {
+	color: rgb(var(--color-light-blue-600));
+}
+
+.C-Light-Blue-700 {
+	color: rgb(var(--color-light-blue-700));
+}
+
+.C-Light-Blue-800 {
+	color: rgb(var(--color-light-blue-800));
+}
+
+.C-Light-Blue-900 {
+	color: rgb(var(--color-light-blue-900));
+}
+
+.C-Dark-Blue-50 {
+	color: rgb(var(--color-dark-blue-50));
+}
+
+.C-Dark-Blue-100 {
+	color: rgb(var(--color-dark-blue-100));
+}
+
+.C-Dark-Blue-200 {
+	color: rgb(var(--color-dark-blue-200));
+}
+
+.C-Dark-Blue-300 {
+	color: rgb(var(--color-dark-blue-300));
+}
+
+.C-Dark-Blue-400 {
+	color: rgb(var(--color-dark-blue-400));
+}
+
+.C-Dark-Blue-500 {
+	color: rgb(var(--color-dark-blue-500));
+}
+
+.C-Dark-Blue-600 {
+	color: rgb(var(--color-dark-blue-600));
+}
+
+.C-Dark-Blue-700 {
+	color: rgb(var(--color-dark-blue-700));
+}
+
+.C-Dark-Blue-800 {
+	color: rgb(var(--color-dark-blue-800));
+}
+
+.C-Dark-Blue-900 {
+	color: rgb(var(--color-dark-blue-900));
+}
+
+.C-Primary-Ylw-50 {
+	color: rgb(var(--Primary-color-mid-yellow-50));
+}
+
+.C-Primary-Ylw-100 {
+	color: rgb(var(--Primary-color-mid-yellow-100));
+}
+
+.C-Primary-Ylw-200 {
+	color: rgb(var(--Primary-color-mid-yellow-200));
+}
+
+.C-Primary-Ylw-300 {
+	color: rgb(var(--Primary-color-mid-yellow-300));
+}
+
+.C-Primary-Ylw-400 {
+	color: rgb(var(--Primary-color-mid-yellow-400));
+}
+
+.C-Primary-Ylw-500 {
+	color: rgb(var(--Primary-color-mid-yellow-500));
+}
+
+.C-Primary-Ylw-600 {
+	color: rgb(var(--Primary-color-mid-yellow-600));
+}
+
+.C-Primary-Ylw-700 {
+	color: rgb(var(--Primary-color-mid-yellow-700));
+}
+
+.C-Primary-Ylw-800 {
+	color: rgb(var(--Primary-color-mid-yellow-800));
+}
+
+.C-Primary-Ylw-900 {
+	color: rgb(var(--Primary-color-mid-yellow-900));
+}
+
+.C-Secondary-Red-50 {
+	color: rgb(var(--Secondary-color-med-red-50));
+}
+
+.C-Secondary-Red-100 {
+	color: rgb(var(--Secondary-color-med-red-100));
+}
+
+.C-Secondary-Red-200 {
+	color: rgb(var(--Secondary-color-med-red-200));
+}
+
+.C-Secondary-Red-300 {
+	color: rgb(var(--Secondary-color-med-red-300));
+}
+
+.C-Secondary-Red-400 {
+	color: rgb(var(--Secondary-color-med-red-400));
+}
+
+.C-Secondary-Red-500 {
+	color: rgb(var(--Secondary-color-med-red-500));
+}
+
+.C-Secondary-Red-600 {
+	color: rgb(var(--Secondary-color-med-red-600));
+}
+
+.C-Secondary-Red-700 {
+	color: rgb(var(--Secondary-color-med-red-700));
+}
+
+.C-Secondary-Red-800 {
+	color: rgb(var(--Secondary-color-med-red-800));
+}
+
+.C-Secondary-Red-900 {
+	color: rgb(var(--Secondary-color-med-red-900));
 }

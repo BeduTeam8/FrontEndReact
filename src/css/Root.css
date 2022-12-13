@@ -1,0 +1,136 @@
+.Drawer-wrapper {
+	background: rgb(var(--Primary-color-mid-yellow-500))
+		linear-gradient(
+			180deg,
+			rgba(var(--Primary-color-mid-yellow-500), 1) 0,
+			rgba(var(--Primary-color-mid-yellow-300), 1) 300%
+		)
+		0% 0% no-repeat padding-box;
+
+	background-color: rgb(var(--Primary-color-mid-yellow-500));
+	width: 28rem;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	gap: 2.5rem;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	border-radius: 0px 16px 16px 0px;
+	padding-block: 11.8125rem;
+	padding-inline: 4.0625rem;
+
+	transition: all 0.5s ease-in-out;
+}
+/* when drawer wrapper is not hoverd move to left */
+.Hover {
+	transform: translateX(-26rem);
+}
+/* wait 1 second before adding not hover */
+.Hover:hover {
+	transition-delay: 0.5s;
+	transform: translateX(0);
+}
+
+/* before not hover smooth trasnition */
+.Hover:not(:hover) > .Drawer-wrapper {
+	transition: all 0.5s ease-in-out;
+}
+
+main {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.Nav-List {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2.5rem;
+	width: 100%;
+}
+
+.Nav-Buttons {
+	width: 100% !important;
+	display: flex;
+	gap: 1rem;
+}
+.Nav-Buttons > a,
+.Nav-Buttons > a > button {
+	width: 100%;
+	height: 3rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	color: rgb(var(--Secondary-color-med-red-500));
+	border-color: rgb(var(--Secondary-color-med-red-500));
+}
+
+.Nav-Buttons > a > button:hover {
+	color: rgb(var(--Secondary-color-med-red-400));
+	background-color: rgb(var(--Primary-color-mid-yellow-400));
+	border-color: rgb(var(--Secondary-color-med-red-400));
+}
+
+.Login-Button {
+	width: 100%;
+	background-color: rgb(var(--Secondary-color-med-red-500)) !important;
+	color: rgb(var(--color-white)) !important;
+	border-color: rgb(var(--Secondary-color-med-red-500));
+}
+.Div-bar {
+	width: 100%;
+	height: 1px;
+	background-color: rgb(var(--Secondary-color-med-red-500));
+	margin: 0;
+	padding: 0;
+	opacity: 10%;
+}
+
+/* SignupNav Components */
+.TextBox {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.TextField > * {
+	width: 100%;
+	padding-block: 0.2 !important;
+	color: rgb(var(--Secondary-color-med-red-500)) !important;
+	background-color: rgb(var(--Primary-color-mid-yellow-400));
+}
+
+.Nav-Login {
+	width: 40rem;
+}
+
+.Nav-Signup {
+	width: 45rem;
+	position: fixed;
+	top: 0;
+	left: 0;
+	transform: translate(0, 0);
+
+	border-radius: 16px 0px 0px 16px;
+}
+
+/* main conent when hover not hover move main */
+.DrawerOpen {
+	margin-left: 45rem;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2.5rem;
+	transition: all 0.3s ease-in;
+}

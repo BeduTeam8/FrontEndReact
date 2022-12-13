@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+// button from material ui
+import { Button } from "@mui/material";
 
 export default function BookDetails() {
 	//get location
 	const location = window.location.pathname;
+	console.log("BookDetails.js: location: ", location);
 
 	//get book id from location
 	const bookId = location.split("/")[3];
@@ -42,6 +46,10 @@ export default function BookDetails() {
 					<p className="FS-10px FF-Inter FW-300">
 						Author: {bookdata.EditorialId}
 					</p>
+
+					<Link to={location + "/read"}>
+						<Button variant="contained">Read</Button>
+					</Link>
 
 					{/* extract Author name from book */}
 				</div>

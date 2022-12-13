@@ -23,6 +23,7 @@ import {
 	Route,
 } from "react-router-dom";
 import SearchResults from "./pages/SearchResults";
+import ReactReader from "./pages/ReactReader";
 /* Here is the explanation for the code above:
   1. We import 3 functions from the 'react-router-dom' package.
   2. The createRoutesFromElements function creates an array of routes from an array of elements.
@@ -46,6 +47,8 @@ const router = createBrowserRouter(
 				<Route path="/category/id/:genre" element={<GenreByName />} />
 				{/* Render BookById with route as book by id */}
 				<Route path="/book/id/:id" element={<BookDetails />} />
+				{/* import react reader on book id id read page */}
+				<Route path="/book/id/:id/read" element={<ReactReader />} />
 			</Route>
 		</Route>
 	)

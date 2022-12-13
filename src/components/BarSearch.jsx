@@ -65,6 +65,7 @@ export default function BarSearch() {
 	const [basicMenu, setBasicMenu] = React.useState("Books");
 	const [EraseInput, setEraseInput] = React.useState("");
 	// 2. Define a function that will update the menu item state variable
+	console.log(Placeholder.textInput+ "2323")
 	function handleMenuItemSelect(menuItem) {
 	  setBasicMenu(menuItem);
 	}

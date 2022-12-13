@@ -1,0 +1,80 @@
+.searchResults {
+	height: 100%;
+	padding: 2rem 5rem;
+}
+
+.transparent {
+	background-color: transparent !important;
+}
+
+.DropDown {
+	outline: 1px solid rgb(156, 201, 201);
+	width: 100% !important;
+	max-width: 50rem;
+	box-shadow: none !important;
+	position: relative;
+}
+
+.BasicMenu-Container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translate(0, -0.815rem);
+	max-width: fit-content;
+	margin: -5px auto -5px 30px;
+	padding: auto -5px;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	width: 100%;
+	z-index: 0;
+	background-color: rgb(79, 99, 103) !important;
+	box-shadow: none !important;
+}
+
+.BasicMenu > * {
+	width: fit-content;
+	background-color: #bddbdb !important;
+}
+
+.BasicMenu-Item {
+	color: #596f73 !important;
+	border-bottom: 1px solid rgb(156, 201, 201, 0.2) !important;
+	width: auto;
+	height: 100%;
+	/* background-color: rgb(156, 201, 201, 0.25) !important; */
+}
+
+.BasicMenu-Item:hover {
+	background-color: rgb(156, 201, 201, 0.5) !important;
+}
+
+.BasicMenu-Button {
+	color: rgb(156, 201, 201) !important;
+}
+
+.SearchBar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+.SearchBar input {
+	width: 100%;
+	color: white;
+}
+.InputBase {
+	width: 100%;
+	color: rgb(255, 255, 255);
+}
+.SearchBar-Icon {
+	color: #f5b841;
+}
+
+.SearchBar-Icon:hover {
+	color: #fac355;
+}
+
+.SearchBar-Icon:active {
+	color: #fac355;
+}

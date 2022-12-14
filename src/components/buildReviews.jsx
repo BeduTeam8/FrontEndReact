@@ -2,7 +2,7 @@ import { Button } from "@mui/material";
 import { display } from "@mui/system";
 import { generatePath } from "react-router-dom";
 
-const BuildReviews = ({ user, profileImage, review }) => {
+const BuildReviews = ({book_id, user_id, profileImage, review }) => {
     return (
       <div className="Reviews" >
         <div  className="userInfo" style={{
@@ -21,7 +21,7 @@ const BuildReviews = ({ user, profileImage, review }) => {
                     "borderRadius": "50%",
                     "margin": "3px"
                     }}/>
-                <p style={{"fontWeight": "bold", "margin": "3px"}}>{user}</p>
+                <p style={{"fontWeight": "bold", "margin": "3px"}}>{user_id || 'Anonymous'}</p>
             </div>
             <div className="review" style={{
                 "width": "85%"

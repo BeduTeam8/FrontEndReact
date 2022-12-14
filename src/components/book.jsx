@@ -6,7 +6,7 @@ const Book = ({ image }) => {
         {
             "id": 1,
             "book_name": "Momma's Man",
-            "image": 'https://educacion30.b-cdn.net/wp-content/uploads/2019/02/girasoles-978x652.jpg.webp',
+            "image": 'https://www.coverbrowser.com/image/george-salters-covers/25-4.jpg',
             "description": "Reverse-engineered web-enabled internet solution",
             "publication_date": "2022-01-07T20:27:29Z",
             "createdAt": "2022-11-12T20:57:03.000Z",

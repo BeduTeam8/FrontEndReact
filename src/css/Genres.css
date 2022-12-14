@@ -20,3 +20,52 @@
 	gap: 1rem;
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
+
+.GenreName {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+	max-width: 80rem;
+	padding: 2rem;
+	border-bottom: 1px solid rgb(var(--Secondary-color-med-red-800), 0.25);
+	margin-bottom: 1rem;
+}
+
+.GenreName > h1 {
+	color: #e3e3e3;
+}
+
+.Header {
+	max-width: 90rem;
+}
+
+.BookGrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 1rem;
+}
+
+.BookCard {
+	background-color: #f5f5f5;
+	border: 1px solid #e3e3e3;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
+	text-align: center;
+}
+
+.BookDetails-Header {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	max-width: 68rem;
+	align-items: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.BookDetails-Header > h2 {
+	color: rgb(var(--Secondary-color-med-red-500));
+}

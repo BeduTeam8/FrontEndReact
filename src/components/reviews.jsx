@@ -1,91 +1,106 @@
-import React from "react";
+
+import React, { useState, useEffect } from "react";
 import BuildReviews from "./buildReviews";
 
-const Reviews = ({ user, profileImage, review }) => {
-    const libros = [
-        {
-            "id": 1,
-            "book_name": "Momma's Man",
-            "image": 'https://educacion30.b-cdn.net/wp-content/uploads/2019/02/girasoles-978x652.jpg.webp',
-            "description": "Reverse-engineered web-enabled internet solution",
-            "publication_date": "2022-01-07T20:27:29Z",
-            "createdAt": "2022-11-12T20:57:03.000Z",
-            "updatedAt": "2022-11-12T20:57:03.000Z",
-            "CategoryId": 14,
-            "EditorialId": 23,
-            "AuthorId": 1,
-            "Editorial": {
-                "name": "Fringe-eared oryx"
-            },
-            "Category": {
-                "genre": "literature"
-            }, 
-            "reviews":[
-                {
-                    "user": "John Wick",
-                    "profileImage": "http://www.lacabecita.com/wp-content/uploads/Keanu-Reeves.png",
-                    "review": "I was looking for something to expand my knowledge and that is what brought me to this product,I had it for about a month and found it to be a little boring so I sent it back but I am glad I did because now I am looking for something different to expand my knowledge."
-                },
-                {
-                    "user": "John Wick",
-                    "profileImage": "http://www.lacabecita.com/wp-content/uploads/Keanu-Reeves.png",
-                    "review": "I was looking for something to expand my knowledge and that is what brought me to this product,I had it for about a month and found it to be a little boring so I sent it back but I am glad I did because now I am looking for something different to expand my knowledge."
-                },
-                {
-                    "user": "John Wick",
-                    "profileImage": "http://www.lacabecita.com/wp-content/uploads/Keanu-Reeves.png",
-                    "review": "I was looking for something to expand my knowledge and that is what brought me to this product,I had it for about a month and found it to be a little boring so I sent it back but I am glad I did because now I am looking for something different to expand my knowledge."
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "book_name": "Dante's Inferno",
-            "image": 'https://educacion30.b-cdn.net/wp-content/uploads/2019/02/girasoles-978x652.jpg.webp',
-            "description": "Multi-layered intangible utilisation",
-            "publication_date": "2022-03-17T15:27:03Z",
-            "createdAt": "2022-11-12T20:57:03.000Z",
-            "updatedAt": "2022-11-12T20:57:03.000Z",
-            "CategoryId": 12,
-            "EditorialId": 13,
-            "AuthorId": 6,
-            "Editorial": {
-                "name": "Pocket gopher (unidentified)"
-            },
-            "Category": {
-                "genre": "horror"
-            },
-            "reviews":[
-                {
-                    "user": "John Wick",
-                    "profileImage": "https://media.gq.com.mx/photos/5f57d52d4464f9b88fb26729/16:9/w_2560%2Cc_limit/Keanu-Reeves.jpg",
-                    "review": "I was looking for something to expand my knowledge and that is what brought me to this product,I had it for about a month and found it to be a little boring so I sent it back but I am glad I did because now I am looking for something different to expand my knowledge."
-                },
-                {
-                    "user": "John Wick",
-                    "profileImage": "https://media.gq.com.mx/photos/5f57d52d4464f9b88fb26729/16:9/w_2560%2Cc_limit/Keanu-Reeves.jpg",
-                    "review": "I was looking for something to expand my knowledge and that is what brought me to this product,I had it for about a month and found it to be a little boring so I sent it back but I am glad I did because now I am looking for something  to expand my knowledge."
-                },
-                {
-                    "user": "John Wick",
-                    "profileImage": "https://media.gq.com.mx/photos/5f57d52d4464f9b88fb26729/16:9/w_2560%2Cc_limit/Keanu-Reeves.jpg",
-                    "review": "I was looking for something to expand my knowledge and that is what brought me to this product,I had it for about a month and found it to be a little boring so I sent it back but I am glad I did because now I am looking for something different to expand my knowledge."
-                }
-            ]
-        }
-    ]
+const Reviews = () => {   
+    
+    const url = "https://libroverse-production.up.railway.app/review/"
 
-    return (
-        <div className="reviews">{
-            libros[0].reviews.map(({user, profileImage, review}) => (
-            <BuildReviews 
-                user = {user}
-                profileImage={profileImage}
-                review={review}
-            /> 
-        ))}
-        </div>
-    );
-};  
+const location = window.location.pathname;
+console.log("Reviews.js: location: ", location);
+
+const book = location.split("/")[3];
+
+console.log("Reviews.js: book: ", book);
+
+const [Reviews, setReviews] = useState([]);
+
+
+const [userName, setUserName] = useState(null);
+
+
+useEffect(() => {
+    const fetchReviews = async () => {
+        try {
+            const response = await fetch(`${url}`, {
+                mode: "cors",
+            });
+            console.log("Reviews.js: response: ", response);
+            const data = await response.json();
+            console.log("Reviews.js: data: ", data);
+      // generate random number between 2 and 5
+      const random = Math.floor(Math.random() * 5) + 2;
+
+      // display random number of reviews
+      const filteredReviews = data.slice(0, random);
+
+      // get user IDs from filtered reviews
+      const userIds = filteredReviews.map(review => review.user_id);
+      
+      console.log("Reviews.js: userIds: ", userIds);
+     
+      // map UserIds and get Username from user
+        const userNames = userIds.map(userId => {
+            fetch(`https://libroverse-production.up.railway.app/users/id/${userId}`, {
+                mode: "cors",
+            })
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                setUserName(data.user.username);
+                console.log("Reviews.js: data: ", data.user.firstname);
+            })
+            .catch(error => console.log("Reviews.js: error: ", error));
+        });
+        console.log("Reviews.js: userNames: ", userNames);
+
+        const reviewsWithUserNames = filteredReviews.map((review, index) => {
+            return {
+              ...review,
+              userName: userNames[index],
+            };
+          });
+
+            console.log("Reviews.js: reviewsWithUserNames: ", reviewsWithUserNames);
+
+
+
+            setReviews(reviewsWithUserNames);
+        } catch (error) {
+            console.log("Reviews.js: error: ", error);
+        }
+    };
+    //  add userNames to reviews
+
+    // map userNames to reviews
+
+
+
+    fetchReviews();
+}, []);
+
+
+
+
+
+return (
+    <div className="reviews">
+{Reviews.length === 0 ? (
+  <p>There are no reviews for this book</p>
+) : (
+  Reviews.map((review, index) => (
+    <BuildReviews
+    key={review.id}
+    review={review.review}
+    rating={review.rating}
+    user_id={review.userName}
+    />
+  ))
+)}
+    </div>
+  );
+
+};
 
 export default Reviews;

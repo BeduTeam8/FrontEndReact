@@ -1,8 +1,14 @@
 import { Button } from "@mui/material";
 import { display } from "@mui/system";
 import { generatePath } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
+
+
 
 const BuildBook = ({ image }) => {
+  const location = useLocation().pathname;
     return (
       <div className="buildBook" style={{"width": "225px"}}>
         <div className="contenedorImagen" style={{
@@ -20,6 +26,7 @@ const BuildBook = ({ image }) => {
           "display": "flex", 
           "justifyContent": "center"
         }}>
+          <Link to={location + "/read"}>
           <Button style={{
               "color": "#fff",
               "backgroundColor": "#F5B841", 
@@ -29,7 +36,7 @@ const BuildBook = ({ image }) => {
               "fontWeight": "bold",
               "borderRadius": "15px",
               "fontSize": "15px"
-            }}>Read</Button>
+            }}>Read</Button></Link>
         </div>
       </div>
     );

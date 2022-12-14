@@ -17,7 +17,7 @@ export default function SimpleSelect() {
 		setAge(event.target.value);
 	};
 	return (
-		<main>
+		<main className="DrawerOpen">
 			<h2 className="FS-64px FW-900 FF-Inter">Search Results</h2>
 
 			<FormControl variant="outlined" className="Form">

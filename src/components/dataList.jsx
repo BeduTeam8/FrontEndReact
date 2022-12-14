@@ -45,7 +45,7 @@ const DataList = () => {
 
 
   return (
-    <div className="datalist">
+    <div className="datalist DrawerOpen">
         <h3 className="themeFontColor text-center">
           Data from LibraryVerse Category
         </h3>

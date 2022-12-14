@@ -41,15 +41,6 @@ import { Visibility , VisibilityOff  } from "@mui/icons-material/";
 						autoComplete="username"
 						className="TextField"
 					/>
-					<TextField
-					required
-						helperText=" Please enter your email"
-						id="demo-helper-text-aligned"
-						label="Email"
-						type="email"
-						autoComplete="email"
-						className="TextField"
-					/>
 					<FormControl variant="outlined" className="TextField">
 						<InputLabel 		htmlFor="outlined-adornment-password">Password</InputLabel>
 						<OutlinedInput

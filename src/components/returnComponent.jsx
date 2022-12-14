@@ -1,19 +1,28 @@
 import { Button } from "@mui/material";
-import { display } from "@mui/system";
-import { generatePath } from "react-router-dom";
+
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+
+import { useNavigate} from "react-router-dom";
+
+
 
 const ReturnComponent = ({}) => {
+  let navigate = useNavigate()
     return (
       <div className="returnComponent">
-        <Button style={{
-            "color": "#fff", 
-            "fontWeight": "bold",
-            "display": "flex",
-            "justifyContent": "flex-start",
-            "marginBottom": "1rem",
-            "marginLeft": "20%",
+					<Button
+						variant="contained"
+            onClick={() => navigate(-1)}
+						style={{
+							backgroundColor: "#425357",
+							color: "white",
+							margin: "1rem",
+						}}
+					>
+						<ArrowBackIcon style={{ marginRight: ".5rem" }} />
+						back
+					</Button>
 
-        }}>RETURN</Button>
       </div>
     );
   };

@@ -1,0 +1,33 @@
+.Grid-Card-BookCover > a {
+	width: 100%;
+	height: 100%;
+}
+
+.BookCover {
+	width: 11rem;
+	/* fill image */
+	object-fit: fill;
+	/* center image */
+	object-position: center;
+	height: Auto;
+	border-radius: 8px;
+	transition: 0.3s;
+}
+
+.BookCover:not(:hover) {
+	opacity: 50%;
+}
+
+.BookCover:hover {
+	opacity: 100%;
+	scale: 1.05;
+}
+
+.title {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 2rem;
+	padding-bottom: 5rem;
+}

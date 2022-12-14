@@ -6,7 +6,7 @@ const App = () => {
 	return (
 		<>
 			<Banner>
-				<div>LibraryVerse!</div>
+				
 			</Banner>
 			<DataList />
 		</>

@@ -81,7 +81,7 @@ function ResponsiveDrawer() {
 	return (
 		<div className="Flex-test">
 			{/* toggle hover class on nav  */}
-			<nav className={"Drawer-wrapper" + " " + ClassNameRenderSwitch()}>
+			<nav className={"Drawer-wrapper " + ClassNameRenderSwitch()}>
 				{/* logo with prop mode dark */}
 				<Logo mode="dark" />
 				<List className="Nav-List">

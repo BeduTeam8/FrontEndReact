@@ -196,7 +196,6 @@ body {
 	background-color: rgb(79, 99, 103);
 	width: 100%;
 	height: 100vh;
-	outline: 1px solid red;
 	transition: all 0.5s ease-in-out;
 }
 
@@ -385,6 +384,10 @@ body {
 	font-size: var(--fontsize-64px);
 }
 
+.FS-128px {
+	font-size: 8rem;
+}
+
 /* font weight classes */
 .FW-100 {
 	font-weight: var(--fontweight-100);
@@ -412,6 +415,35 @@ body {
 }
 .FW-900 {
 	font-weight: var(--fontweight-900);
+}
+
+/* text clases */
+.T-Left {
+	text-align: left;
+}
+
+.T-Center {
+	text-align: center;
+}
+
+.T-Right {
+	text-align: right;
+}
+
+.T-Justify {
+	text-align: justify;
+}
+
+.T-Upper {
+	text-transform: uppercase;
+}
+
+.T-Lower {
+	text-transform: lowercase;
+}
+
+.T-Capitalize {
+	text-transform: capitalize;
 }
 
 /* color classes */

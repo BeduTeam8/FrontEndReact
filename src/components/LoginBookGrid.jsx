@@ -54,13 +54,12 @@ const LoginBookGrid = () => {
  
 
     return (
-        
-        <Grid container spacing={2}>
+
+        <Grid container spacing={1}>
             {books.map((book) => (
-                <Grid item xs={2} sm={3} key={book.id} className="Grid-Card-BookCover">
+                <Grid item xs={1} sm={3} key={book.id} className="Grid-Card-BookCover">
                     <Link to={`/book/${book.id}`}>
                         <img src={book.img}
-
                             alt={book.title}
                             className="BookCover"
                         />

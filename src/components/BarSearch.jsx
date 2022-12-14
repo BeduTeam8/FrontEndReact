@@ -44,7 +44,6 @@ const Placeholder = (props) => { // create a component called Placeholder
 			default:
 				URLFlow = URL
 		}
-		console.log(URLFlow)
 		
 	}
 	if (props.InputField==="borrar" && textInput !== ""){

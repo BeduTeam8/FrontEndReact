@@ -43,7 +43,7 @@ const BookInformation = ({ title, author, genre, editorial, description }) => {
 
     // get AuthorId from book data and fetch by author data as well
 
-
+ console.log("BookDetails.js: bookdata: ", bookdata);
     return (
         <div className="bookInformation">
             <BuildBookInformation 

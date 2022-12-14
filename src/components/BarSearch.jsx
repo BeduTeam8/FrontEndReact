@@ -13,19 +13,47 @@ import BasicMenu from "./MenuInSearchResults";
 // create 
 const books = [  "The Great Gatsby",  "Moby-Dick",  "One Hundred Years of Solitude",  "Pride and Prejudice",  "War and Peace",];
 
+const URL = "https://libroverse-production.up.railway.app"
+let URLFlow = "https://libroverse-production.up.railway.app"
 
 
 // create a switch case function based on the state of BasicMenu and export placeholder for inputbase
 const Placeholder = (props) => { // create a component called Placeholder
 	const [textInput, SetInputText] = React.useState("")
-	function textChange(e){
-		SetInputText(e.target.value)
 
+	const [data, setData] = React.useState(null);
+    const [loading, setLoading] = React.useState(true);
+    const [error, setError] = React.useState(null);
+
+
+	const textChange = (BasicMenu)=> (e) => {
+		SetInputText(e.target.value)
+		switch (BasicMenu){
+			case "Books":
+				URLFlow = URL + "/book/name/" + e.target.value
+			break
+			case "Genre":
+				URLFlow = URL + "/category/id/" + e.target.value
+			break
+			case "Author":
+				URLFlow = URL + "/author/search/" + e.target.value
+			break
+			case "Editorial":
+				URLFlow = URL + "/editorial/search/" + e.target.value
+			break
+			default:
+				URLFlow = URL
+		}
+		console.log(URLFlow)
+		
 	}
 	if (props.InputField==="borrar" && textInput !== ""){
 		SetInputText("")
-		console.log("test")
 	}
+
+	
+
+	
 
 	const placeholder = (BasicMenu) => { // create a function called placeholder
 	  switch (BasicMenu) { // check the value of BasicMenu
@@ -46,14 +74,41 @@ const Placeholder = (props) => { // create a component called Placeholder
 		  return "Looking for a book to read?";
 	  }
 	}
-  
+	React.useEffect(() => {
+		console.log(URLFlow)
+  		const getData = async () => {
+    	try {
+      		const response = await fetch(
+        	URLFlow,{mode:'cors'}
+      		);
+      		if (!response.ok) {
+        		throw new Error(
+          		`This is an HTTP error: The status is ${response.status}`
+        		);
+      		}
+      		let actualData = await response.json();
+			console.log(actualData)
+      		setData(actualData);
+			setError(null);
+    	} catch(err) {
+      		setError(err.message);
+      		setData(null);
+    	} finally {
+			console.log("d")
+      		setLoading(false);
+    	}  
+  	}
+  	getData()
+	}, [URLFlow])
+
 	return ( // return the following code
 	  <InputBase
 		className="InputBase"
 		placeholder={placeholder(props.BasicMenu)} // call the placeholder function and pass the value of BasicMenu as an argument
 		inputProps={{ "aria-label": "Search Bar" }}
-		onChange={textChange}
+		onChange={textChange(props.BasicMenu)}
 		value={textInput}
+		
 	  />
 	);
   }
@@ -65,7 +120,6 @@ export default function BarSearch() {
 	const [basicMenu, setBasicMenu] = React.useState("Books");
 	const [EraseInput, setEraseInput] = React.useState("");
 	// 2. Define a function that will update the menu item state variable
-	console.log(Placeholder.textInput+ "2323")
 	function handleMenuItemSelect(menuItem) {
 	  setBasicMenu(menuItem);
 	}
@@ -73,9 +127,8 @@ export default function BarSearch() {
 		setEraseInput("borrar")
 		console.log(EraseInput)
 	}
-	function offeraseText (e){
+	function offeraseText (){
 		setEraseInput("")
-		console.log(EraseInput)
 		
 	}
 

@@ -8,6 +8,7 @@ import {  BrowserRouter,
 
 
 import Login from '../Login/Login';
+import SignUp from '../../pages/SignUp';
 import Logout from '../../pages/Logout';
 import Results from '../../pages/Results';
 import Dashboard from '../Dashboard/Dashboard';
@@ -33,9 +34,9 @@ function App() {
   //const token = getToken(); //going as customHook
   const { token, setToken } = useToken(); //CustomHook
 
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
+  // if(!token) {
+  //   return <SignUp setToken={setToken} />
+  // }
   return (
     <div className="wrapper">
       <h1>Application</h1>
@@ -44,7 +45,9 @@ function App() {
         {/* {console.log("Token APP.js,",token)} */}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/preferences" element={<Preferences />} />
-          <Route path="/logout" element={<Logout/>}/>
+          <Route path="/login" setToken={setToken} element={<Login/>}/>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/logout" setToken={setToken} element={<Logout/>}/>
           <Route path="/results" element={<Results/>}/>
         </Routes>
       </BrowserRouter>

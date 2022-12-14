@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const BookInformation = ({ title, author, genre, editorial, description }) => {
   	//get location
 	const location = window.location.pathname;
-	console.log("BookDetails.js: location: ", location);
+
 
 	//get book id from location
 	const bookId = location.split("/")[3];
@@ -28,7 +28,7 @@ const BookInformation = ({ title, author, genre, editorial, description }) => {
           });
           const data = await response.json();
           setBookData(data);
-          console.log("BookDetails.js: data: ", data);
+  
       
           // Fetch author data
           const authorResponse = await fetch(`/author/id/${authorId}`, {
@@ -36,7 +36,7 @@ const BookInformation = ({ title, author, genre, editorial, description }) => {
           });
           const authorData = await authorResponse.json();
           setAuthorData(authorData);
-          console.log("BookDetails.js: authorData: ", authorData);
+
         };
         fetchData();
       }, [bookId, authorId]);

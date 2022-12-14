@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import CircularIndeterminate from "../components/loadingIndicator";
 
 export default function GenreByName() {
 	// get location
@@ -26,7 +27,7 @@ export default function GenreByName() {
 
 	console.log("GenreByName.js: genreData: ", genreData);
 
-	if (!genreData) return <p>Loading...</p>;
+	if (!genreData) return <CircularIndeterminate />;
 
 	return (
 		<main className="DrawerOpen">

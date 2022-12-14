@@ -58,9 +58,7 @@ const DataList = () => {
         {data &&
           data.map(({ id, genre,description,createdAt,updatedAt}) => (
             <DataRow key={id} genre={genre} description={description}
- 
             />
-              
           ))}      
         </Grid>
       </table>

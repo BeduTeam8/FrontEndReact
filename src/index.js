@@ -49,6 +49,9 @@ const router = createBrowserRouter(
 				<Route path="/book/id/:id" element={<BookDetails />} />
 				{/* import react reader on book id id read page */}
 				<Route path="/book/id/:id/read" element={<ReactReader />} />
+				{/* use loading indicator on load */}
+
+				<Route path="/loading" element={<></>} />
 			</Route>
 		</Route>
 	)

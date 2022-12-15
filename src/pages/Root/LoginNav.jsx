@@ -29,8 +29,8 @@ const postCredentials = (username, userpass) => {
             'Content-Type': 'application/json',
             },
 		body: JSON.stringify({
-			username: username,
-			userpass: userpass,
+			"username": username,
+			"userpass": userpass,
 		}),
 	})
 		.then((res) => res.json())

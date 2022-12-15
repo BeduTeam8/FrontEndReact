@@ -6,8 +6,6 @@ import ResultGrid from "../components/ResultGrid";
 
 //import BasicMenu from "../components/MenuInSearchResults";
 
-
-
 // depending on menu selection send search bar route path to search results page
 // const handleSearch = (event) => {
 // 	let search = event.target.innerText;
@@ -25,9 +23,7 @@ import ResultGrid from "../components/ResultGrid";
 // 	}
 // };
 
-const items = [
-	
-]
+const items = [];
 
 function SearchResult() {
 	return (
@@ -35,11 +31,10 @@ function SearchResult() {
 			<BarSearch></BarSearch>
 
 			<h1>Testing</h1>
-			
+
 			<ResultGrid items={items}></ResultGrid>
 		</main>
 	);
 }
 
 export default SearchResult;
-

@@ -1,15 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom";
+
 import BarSearch from "../components/BarSearch";
+import { Link } from "react-router-dom";
+import Logo from "../components/Logo";
 
 export default function Landing() {
-	
 	return (
-		<main>
-			<h2 className="FS-64px FW-900 FF-Inter">Search Results</h2>
-		<BarSearch></BarSearch>
-			
+		<main className="DrawerOpen maxwidth">
+			<Logo mode="dark" />
+
+			<Link to="/searchresults" className="maxwidth">
+				<BarSearch className="maxwidth" />
+			</Link>
 		</main>
 	);
 }
-ReactDOM.render(<Landing />, document.getElementById("root"));

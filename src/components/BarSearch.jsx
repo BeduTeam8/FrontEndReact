@@ -86,9 +86,10 @@ const Placeholder = (props) => { // create a component called Placeholder
         		);
       		}
       		let actualData = await response.json();
-			console.log(actualData)
+			console.log("La actualDAta:",actualData)
       		setData(actualData);
 			setError(null);
+			console.log("data length from API:",Object.keys(actualData).length);	
     	} catch(err) {
       		setError(err.message);
       		setData(null);
@@ -99,18 +100,29 @@ const Placeholder = (props) => { // create a component called Placeholder
   	}
   	getData()
 	}, [URLFlow])
-
 	return ( // return the following code
-	  <InputBase
-		className="InputBase"
-		placeholder={placeholder(props.BasicMenu)} // call the placeholder function and pass the value of BasicMenu as an argument
-		inputProps={{ "aria-label": "Search Bar" }}
-		onChange={textChange(props.BasicMenu)}
-		value={textInput}
-		
-	  />
+	  <div>
+		<InputBase
+				className="InputBase"
+				placeholder={placeholder(props.BasicMenu)} // call the placeholder function and pass the value of BasicMenu as an argument
+				inputProps={{ "aria-label": "Search Bar" }}
+				onChange={(e) => {
+			
+					// call API to search for results using the textInput value
+					// and display the results in the component
+					textChange(props.BasicMenu)(e)
+				}}
+				value={textInput}
+		/>
+
+
+	  </div>
 	);
   }
+
+
+
+
 
 
 export default function BarSearch() {
@@ -141,6 +153,7 @@ export default function BarSearch() {
 			<BasicMenu onMenuItemSelect={handleMenuItemSelect} />
 
 			</Paper>
+		
 			<Paper
 			className="SearchBar transparent"
 				component="form"
@@ -158,6 +171,7 @@ export default function BarSearch() {
 					<CancelIcon  className="SearchBar-Icon" />
 				</IconButton>
 			</Paper>
+				{/* {dataMap()} */}
 		</Paper>
 	);
 }

@@ -125,7 +125,6 @@ main {
 
 /* main conent when hover not hover move main */
 .DrawerOpen {
-	margin-left: 45rem;
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -133,4 +132,16 @@ main {
 	justify-content: center;
 	gap: 2.5rem;
 	transition: all 0.3s ease-in;
+}
+
+.maxwidth {
+	max-width: 100% !important;
+}
+
+.maxwidth > * {
+	width: 100% !important;
+}
+
+* {
+	transition: all 0.3s ease-in !important;
 }

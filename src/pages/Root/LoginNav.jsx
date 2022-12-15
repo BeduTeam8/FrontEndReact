@@ -19,6 +19,7 @@ console.log("URL",URL)
 const postCredentials = (username, userpass) => {
 	console.log("postCredentials",username,userpass)
 	return fetch(URL, {
+
 		method: "POST",
 		withCredentials: true,
         // credentials: 'include',
@@ -28,6 +29,7 @@ const postCredentials = (username, userpass) => {
 			'Access-Control-Allow-Origin': '*',
 			'Content-Type': 'application/json',
 			},
+
 		body: JSON.stringify({
 			"username": username,
 			"userpass": userpass,

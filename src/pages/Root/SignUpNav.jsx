@@ -18,8 +18,10 @@ console.log("URL",URL)
 const postCredentials = (username, userpass, firstname, lastname, email) => {
 	console.log("postCredentials",username,userpass, firstname, lastname, email)
 	return fetch(URL, {
+
 		method: "POST",
 		withCredentials: true,
+
         //credentials: 'include',
         mode: "cors",
         headers: {

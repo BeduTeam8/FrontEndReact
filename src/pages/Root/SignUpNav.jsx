@@ -17,10 +17,15 @@ console.log("URL",URL)
 const postCredentials = (username, userpass, firstname, lastname, email) => {
 	console.log("postCredentials",username,userpass, firstname, lastname, email)
 	return fetch(URL, {
-		method: "POST",
-		headers: {
-			"Content-Type": "application/json",
-		},
+        method: 'POST',
+        withCredentials: true,
+        //credentials: 'include',
+        mode: "cors",
+        headers: {
+            'Access-Control-Allow-Credentials':'true',
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
+            },
 		body: JSON.stringify({
 			username: username,
 			userpass: userpass,

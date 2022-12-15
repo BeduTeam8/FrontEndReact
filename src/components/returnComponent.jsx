@@ -6,7 +6,7 @@ import { useNavigate} from "react-router-dom";
 
 
 
-const ReturnComponent = ({}) => {
+const ReturnComponent = () => {
   let navigate = useNavigate()
     return (
       <div className="returnComponent">

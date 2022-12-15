@@ -7,7 +7,7 @@ import {Grid} from "@mui/material/";
 // create an array of 8 random books
 
 const ResultGrid = (props) => {
-    if (props.items == 0){
+    if (props.items === 0){
         return(
             <h1>No hay resultados</h1>
         )

@@ -84,7 +84,9 @@ const filteredReviews = reviewsWithImg.slice(0, random);
     };
 
     fetchReviews();
-}, []);
+}, [
+// only run this effect if the book changes
+    book,]);
 
 
 

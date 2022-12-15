@@ -2,7 +2,7 @@ import Book from "../components/book";
 import ReturnComponent from "../components/returnComponent";
 import BookInformation from "../components/bookInformation";
 import Reviews from "../components/reviews";
-import React, { useState } from "react";
+import React from "react";
 
 export default function BookDetails() {
 	return (

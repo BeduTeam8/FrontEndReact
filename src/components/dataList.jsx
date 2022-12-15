@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
 import React, { useState,useEffect } from "react";
 import DataRow from "./dataRow";
+import URL from "../api/api"
 //  const URL="https://libroverse-production.up.railway.app";
 //const URL="http://localhost:4000"
 
@@ -13,8 +14,9 @@ const DataList = () => {
   const getData = async () => {
     try {
       const response = await fetch(
-        `/category`,{mode:'cors'}
+        `${URL}/category`,{mode:'cors'}
       );
+      console.log("response",response)
       if (!response.ok) {
         throw new Error(
           `This is an HTTP error: The status is ${response.status}`

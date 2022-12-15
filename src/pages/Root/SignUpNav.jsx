@@ -7,18 +7,21 @@ import { Link,} from "react-router-dom";
 import { Visibility , VisibilityOff  } from "@mui/icons-material/";
 import { useNavigate } from "react-router-dom";
 import Alert from '@mui/material/Alert';
+import URLimport from "../../api/api"
 
-const base_URL="https://libroverse-production.up.railway.app/";
+const base_URL=URLimport;
 //const URL="http://localhost:4000/"
-const endPoint="users/signup"
+const endPoint="/users/signup"
 const URL=base_URL+endPoint
 console.log("URL",URL)
 
 const postCredentials = (username, userpass, firstname, lastname, email) => {
 	console.log("postCredentials",username,userpass, firstname, lastname, email)
 	return fetch(URL, {
-        method: 'POST',
-        withCredentials: true,
+
+		method: "POST",
+		withCredentials: true,
+
         //credentials: 'include',
         mode: "cors",
         headers: {

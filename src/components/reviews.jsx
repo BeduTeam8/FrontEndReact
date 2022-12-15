@@ -1,10 +1,11 @@
 
 import React, { useState, useEffect } from "react";
 import BuildReviews from "./buildReviews";
+import URL from "../api/api";
 
 const Reviews = () => {   
     
-const url = "https://libroverse-production.up.railway.app/review/"
+
 
 const location = window.location.pathname;
 
@@ -13,6 +14,7 @@ const book = location.split("/")[3];
 console.log("Reviews.js: book: ", book);
 
 const [Reviews, setReviews] = useState([]);
+
 
 
 useEffect(() => {
@@ -26,7 +28,7 @@ useEffect(() => {
       }
     const fetchReviews = async () => {
         try {
-            const response = await fetch(`${url}`, {
+            const response = await fetch(`${URL}/review/`, {
                 mode: "cors",
             });
             console.log("Reviews.js: response: ", response);
@@ -53,7 +55,7 @@ const filteredReviews = reviewsWithImg.slice(0, random);
      
       const userNames = userIds.map(async userId => {
         try {
-          const response = await fetch(`https://libroverse-production.up.railway.app/users/id/${userId}`, {
+          const response = await fetch(`${URL}/users/id/${userId}`, {
             mode: "cors",
           });
           const data = await response.json();

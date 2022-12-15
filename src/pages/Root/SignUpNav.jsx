@@ -23,7 +23,7 @@ const postCredentials = (username, userpass, firstname, lastname, email) => {
         mode: "cors",
         headers: {
             'Access-Control-Allow-Credentials':'true',
-            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Origin': 'https://639a7fa9878d176c0991cab7--extraordinary-baklava-b8b002.netlify.app/',
             'Content-Type': 'application/json',
             },
 		body: JSON.stringify({

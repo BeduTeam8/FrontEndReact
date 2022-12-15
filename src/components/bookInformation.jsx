@@ -1,6 +1,8 @@
 import React from "react";
 import BuildBookInformation from "./buildBookInformation";
 import { useState, useEffect } from "react";
+import URL from "../api/api"
+
 
 const BookInformation = ({ title, author, genre, editorial, description }) => {
   	//get location
@@ -23,7 +25,7 @@ const BookInformation = ({ title, author, genre, editorial, description }) => {
     useEffect(() => {
         const fetchData = async () => {
           // Fetch book data
-          const response = await fetch(`/book/id/${bookId}`, {
+          const response = await fetch(`${URL}/book/id/${bookId}`, {
             mode: "cors",
           });
           const data = await response.json();
@@ -31,7 +33,7 @@ const BookInformation = ({ title, author, genre, editorial, description }) => {
   
       
           // Fetch author data
-          const authorResponse = await fetch(`/author/id/${authorId}`, {
+          const authorResponse = await fetch(`${URL}/author/id/${authorId}`, {
             mode: "cors",
           });
           const authorData = await authorResponse.json();

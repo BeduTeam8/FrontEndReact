@@ -8,11 +8,11 @@ import { Visibility , VisibilityOff  } from "@mui/icons-material/";
 import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 import Alert from '@mui/material/Alert';
+import ImportURL from "../../api/api"
 
-
-const base_URL="https://libroverse-production.up.railway.app/";
+const base_URL=ImportURL
 //const URL="http://localhost:4000"
-const endPoint="users/logIn"
+const endPoint="/users/logIn"
 const URL=base_URL+endPoint
 console.log("URL",URL)
 
@@ -20,25 +20,29 @@ const postCredentials = (username, userpass) => {
 	console.log("postCredentials",username,userpass)
 	return fetch(URL, {
 		method: "POST",
+		withCredentials: true,
+        // credentials: 'include',
+        mode: "cors",
 		headers: {
-			"Content-Type": "application/json",
-		},
+			'Access-Control-Allow-Credentials':'true',
+			'Access-Control-Allow-Origin': '*',
+			'Content-Type': 'application/json',
+			},
 		body: JSON.stringify({
-			username: username,
-			userpass: userpass,
+			"username": username,
+			"userpass": userpass,
 		}),
 	})
 		.then((res) => res.json())
 		.then((data) => {
 			console.log("data",data)
 			return data;
-		}
-		)
-		.catch((err) => console.log(err));
-
+		})
+		.catch((err) => {
+			console.log(err);
+			// handle the error here
+		});
   };
-
-  
 
  export default function LoginNav({setToken}) {
 	const [alert, setAlert] = React.useState(false);

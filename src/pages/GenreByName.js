@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CircularIndeterminate from "../components/loadingIndicator";
+import URL from "../api/api";
 
 export default function GenreByName() {
 	// get location
@@ -16,7 +17,7 @@ export default function GenreByName() {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const response = await fetch(`/category/id/${genreName}`, {
+			const response = await fetch(`${URL}/category/id/${genreName}`, {
 				mode: "cors",
 			});
 			const data = await response.json();

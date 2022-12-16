@@ -41,8 +41,8 @@ const router = createBrowserRouter(
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />
 				<Route path="/genres" element={<Genres />} />
-				<Route path="/searchResults" element={<SearchResults />} />
-				{/* <Route path="/bookdetails" element={<BookDetails />} /> */}
+				<Route path="/searchresults" element={<SearchResults />} />
+				<Route path="/bookdetails" element={<BookDetails />} />
 				<Route path="*" element={<Error />} />
 				{/* render Genreby name when route catagory/id {genre} is called */}
 				<Route path="/category/id/:genre" element={<GenreByName />} />

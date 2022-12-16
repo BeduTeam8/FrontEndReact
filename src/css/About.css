@@ -1,0 +1,96 @@
+.About-Root {
+	height: 100%;
+	width: 100%;
+	background-color: rgb(var(--color-dark-blue-600)) !important;
+	max-width: 50rem;
+	gap: 2rem;
+}
+
+* {
+	transition: all 0.2s ease-in-out;
+}
+
+.About-Content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	padding: 1rem 2rem !important;
+	outline: 1px solid red !important;
+	gap: 1.5rem;
+	position: relative;
+}
+
+.About-Header {
+	font-size: 3rem !important;
+	font-weight: 400 !important;
+	color: rgb(var(--color-light-blue-200)) !important;
+}
+
+.About-Content > A {
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	color: rgb(var(--color-light-blue-300)) !important;
+}
+
+.About-Content > A:hover {
+	color: rgb(var(--color-light-blue-100)) !important;
+}
+
+.About-Back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 2rem;
+	background-color: #f5f5f5;
+	cursor: pointer;
+}
+
+.About-Body {
+	max-width: 40rem;
+	color: rgb(var(--color-dark-blue-100)) !important;
+}
+
+.About-Body > a {
+	font-weight: 500;
+	color: rgb(var(--color-dark-blue-300)) !important;
+}
+
+.About-Body > a:hover {
+	color: rgb(var(--color-dark-blue-800)) !important;
+}
+
+.About-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-gap: 2rem;
+	color: rgb(var(--color-dark-blue-100)) !important;
+}
+
+.About-grid > li {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	font-size: 1.2rem;
+}
+
+.About-grid > li > a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	font-size: 0.8rem;
+	color: rgb(var(--color-dark-blue-300)) !important;
+}
+
+.About-grid > li > a:hover {
+	color: rgb(var(--color-dark-blue-800)) !important;
+}

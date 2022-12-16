@@ -1,6 +1,8 @@
+import { Grid } from "@mui/material";
 import React, { useState,useEffect } from "react";
 import DataRow from "./dataRow";
- //const URL="https://libroverse-production.up.railway.app";
+import URL from "../api/api"
+//  const URL="https://libroverse-production.up.railway.app";
 //const URL="http://localhost:4000"
 
 const DataList = () => {
@@ -12,8 +14,9 @@ const DataList = () => {
   const getData = async () => {
     try {
       const response = await fetch(
-        `/category`,{mode:'cors'}
+        `${URL}/category`,{mode:'cors'}
       );
+      console.log("response",response)
       if (!response.ok) {
         throw new Error(
           `This is an HTTP error: The status is ${response.status}`
@@ -44,32 +47,22 @@ const DataList = () => {
 
 
   return (
-    <div className="datalist">
-        <h5 className="themeFontColor text-center">
+    <div className="datalist DrawerOpen">
+        <h3 className="themeFontColor text-center">
           Data from LibraryVerse Category
-        </h5>
+        </h3>
       {loading && <div>A moment please...</div>}
       {error && (
         <div>{`There is a problem fetching the post data - ${error}`}</div>
       )}
       <table className="table table-hover">
-        <thead>
-          <tr>
-            <th>Genre</th>
-            <th>description</th>
-            <th>CreatedAt</th>
-          </tr>
-        </thead>
-        <tbody>
+        <Grid className="Grid-Genre">
         {data &&
           data.map(({ id, genre,description,createdAt,updatedAt}) => (
             <DataRow key={id} genre={genre} description={description}
-              createdAt={createdAt}
-              updatedAt={updatedAt}
             />
-              
           ))}      
-        </tbody>
+        </Grid>
       </table>
     </div>
   );

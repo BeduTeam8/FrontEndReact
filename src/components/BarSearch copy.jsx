@@ -175,7 +175,12 @@ export default function BarSearch() {
 				<IconButton type="button" sx={{ p: "10px" }} aria-label="search">
 					<SearchIcon className="SearchBar-Icon" />
 				</IconButton>
-				<Placeholder BasicMenu={basicMenu} InputField={EraseInput}/>
+				<TextField
+			className='InputBase'
+        label="Search"
+        value={searchQuery}
+        onChange={event => setSearchQuery(event.target.value)}
+      />
 				<IconButton 
 					sx={{ p: "10px" }} aria-label="menu"
 					onMouseDown={eraseText}

@@ -7,6 +7,7 @@ import Logo from "../components/Logo";
 import BaseNav from "./Root/BaseNav.jsx";
 import SignUpNav from "./Root/SignUpNav.jsx";
 import LoginNav from "./Root/LoginNav.jsx";
+import useToken from "../hooks/useTokens";
 
 // Context provider to switch between SignUpNav and BaseNav
 export const NavContext = React.createContext();
@@ -15,6 +16,8 @@ export const ClassRenderSwitch = React.createContext();
 
 // use location to swap SignUpNav and BaseNav
 function NavSwitch() {
+	// const { token, setToken } = useToken(); //CustomHook
+	const { setToken } = useToken(); //CustomHook
 	// 1. Get the current location of the page
 	const location = useLocation();
 	// 2. Create a state variable to store the current location
@@ -31,7 +34,7 @@ function NavSwitch() {
 			case "/signup":
 				return <SignUpNav />;
 			case "/login":
-				return <LoginNav />;
+				return <LoginNav setToken={setToken} />;
 			default:
 				return <BaseNav />;
 		}
@@ -78,10 +81,13 @@ function ClassNameRenderSwitch() {
 
 // Responsive drawer component
 function ResponsiveDrawer() {
+	// if (!token) {
+	// 	return <LoginNav setToken={setToken} />;
+	// }
 	return (
 		<div className="Flex-test">
 			{/* toggle hover class on nav  */}
-			<nav className={"Drawer-wrapper" + " " + ClassNameRenderSwitch()}>
+			<nav className={"Drawer-wrapper " + ClassNameRenderSwitch()}>
 				{/* logo with prop mode dark */}
 				<Logo mode="dark" />
 				<List className="Nav-List">

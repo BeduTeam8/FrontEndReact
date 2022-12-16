@@ -31,13 +31,16 @@
 }
 /* wait 1 second before adding not hover */
 .Hover:hover {
-	transition-delay: 0.5s;
 	transform: translateX(0);
 }
 
-/* before not hover smooth trasnition */
-.Hover:not(:hover) > .Drawer-wrapper {
+.DrawerOpen {
 	transition: all 0.5s ease-in-out;
+}
+
+/* on .Hover Hover move all other content */
+.Hover:hover ~ .DrawerOpen {
+	margin-left: 26rem;
 }
 
 main {
@@ -120,28 +123,7 @@ main {
 	left: 0;
 	transform: translate(0, 0);
 
-	border-radius: 16px 0px 0px 16px;
+	border-radius: 0px 16px 16px 0;
 }
 
 /* main conent when hover not hover move main */
-.DrawerOpen {
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 2.5rem;
-	transition: all 0.3s ease-in;
-}
-
-.maxwidth {
-	max-width: 100% !important;
-}
-
-.maxwidth > * {
-	width: 100% !important;
-}
-
-* {
-	transition: all 0.3s ease-in !important;
-}

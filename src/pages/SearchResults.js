@@ -7,7 +7,7 @@ const ApiUrl = "https://libroverse-production.up.railway.app";
 
 function SearchResult() {
 	return (
-		<main className="searchResults">
+		<main className="searchResults DrawerOpen">
 			<BarSearch></BarSearch>
 		</main>
 	);
